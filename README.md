@@ -4,7 +4,6 @@
 
 包括微商城, 后台管理. 包含优惠折扣, 砍价等功能. 截图如下:
 
-![Image text](https://raw.githubusercontent.com/michael-luk/images/master/lobster_site.png)
 
 ![Image text](https://raw.githubusercontent.com/michael-luk/images/master/lobster_shop.png)
 
