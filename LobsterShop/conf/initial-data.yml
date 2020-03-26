@@ -1,0 +1,505 @@
+users:
+  - !!models.UserModel
+    loginName: 18666911091
+    nickname: 萧霖
+    password: e10adc3949ba59abbe56e057f20f883e
+    userRole: 2
+    jifen: 100
+
+  - !!models.UserModel
+    loginName: 18675629612
+    nickname: 小燕
+    password: e10adc3949ba59abbe56e057f20f883e
+    userRole: 0
+    resellerCode: 123
+    isReseller: True
+    wxOpenId: 111
+    jifen: 110
+    
+  - !!models.UserModel
+    loginName: 18675629633
+    nickname: 小郑
+    password: e10adc3949ba59abbe56e057f20f883e
+    userRole: 1
+    jifen: 120
+    
+    
+# Promotion
+promotions:
+
+  - !!models.PromotionModel
+    promotionType: 满减优惠
+    title: 满500减100
+    reachMoney: 500
+    discount: 100
+    available: False
+
+  - !!models.PromotionModel
+    promotionType: 满减优惠
+    title: 满1000减300
+    reachMoney: 1000
+    discount: 300
+    available: False
+
+  - !!models.PromotionModel
+    promotionType: 满减优惠
+    title: 满800减200
+    reachMoney: 800
+    discount: 200
+    available: False
+
+  - !!models.PromotionModel
+    promotionType: 首单优惠
+    title: 首单优惠
+    discount: 10
+    available: False
+
+  - !!models.PromotionModel
+    promotionType: 普通优惠
+    title: 开张大吉下单即减
+    discount: 10
+    available: True
+
+  - !!models.PromotionModel
+    promotionType: 免运费
+    title: 免运费
+    reachMoney: 100
+    available: False
+    
+# 优惠券
+coupons:
+
+  - !!models.CouponModel
+    reachMoney: 500
+    discount: 100
+    startTime: 2016/2/1
+    endTime: 2016/2/28
+
+  - !!models.CouponModel
+    reachMoney: 300
+    discount: 80
+    startTime: 2016/2/1
+    endTime: 2016/2/28
+
+  - !!models.CouponModel
+    reachMoney: 200
+    discount: 50
+    startTime: 2016/2/1
+    endTime: 2016/2/28
+       
+# Shipinfos    
+shipinfos:
+
+  - !!models.ShipInfoModel
+    name: 张三
+    phone: 13715673589
+    postCode: 516000
+    provice: 广东省
+    city: 珠海市
+    provice: 香洲区
+    location: 翠香路274号
+
+  - !!models.ShipInfoModel
+    name: 李斯
+    phone: 13715673614
+    postCode: 513000
+    provice: 广东省
+    city: 珠海市
+    provice: 香洲区
+    location: 安平大厦
+
+  - !!models.ShipInfoModel
+    name: 杨过
+    phone: 13715673451
+    postCode: 513085
+    provice: 广东省
+    city: 珠海市
+    provice: 香洲区
+    location: 中国银行
+
+# Shipareaprices
+shipareaprices:
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 富华里
+    shipPrice: 15
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 新香洲
+    shipPrice: 30
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 吉大
+    shipPrice: 30
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 兰埔
+    shipPrice: 20
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 南屏
+    shipPrice: 25
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 柠溪
+    shipPrice: 20
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 唐家湾
+    shipPrice: 50
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 夏湾
+    shipPrice: 0
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 拱北
+    shipPrice: 0
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 华发世纪城
+    shipPrice: 20
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 华发商都
+    shipPrice: 25
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 摩尔广场
+    shipPrice: 15
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 明珠商业广场
+    shipPrice: 30
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 前山
+    shipPrice: 25
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 湾仔
+    shipPrice: 50
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 香洲区
+    area: 香洲
+    shipPrice: 30
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 斗门区
+    area: 井岸
+    shipPrice: 80
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 金湾区
+    area: 红旗镇
+    shipPrice: 100
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 金湾区
+    area: 三灶镇
+    shipPrice: 100
+
+  - !!models.ShipAreaPriceModel
+    city: 珠海市
+    zone: 横琴新区
+    area: 横琴新区
+    shipPrice: 80
+
+# Company Info
+companys:
+
+  - !!models.common.CompanyModel
+    name: 东莞龙鑫酒业有限公司
+    location: 珠海富华里A座1203
+    phone: 400-678-0068
+    cellPhone: 18666911091
+    email: mail@zhenshang.com
+    weibo: longxinwb
+    barcodeImg1: weibo.png 
+    qq: 17040643
+    weixin: 龙鑫酒业
+    barcodeImg2: weixin.png
+    description1: 东莞龙鑫酒业有限公司专注于定制酒产品的开发和定制酒文化的推广.
+    registerInfo1: Copyright © 2015-2016
+    registerInfo1: 粤ICP备145523559
+    logo1: logo.jpg
+
+
+# Catalogs
+catalogs:
+
+  - !!models.CatalogModel
+    name: 小龙虾系列
+    catalogIndex: 1
+    smallImages: xilie1.jpg
+    images: longxia.png
+
+  - !!models.CatalogModel
+    name: 鸭后系列
+    catalogIndex: 2
+    smallImages: xilie2.jpg
+    images: yahou.png
+
+  - !!models.CatalogModel
+    name: 小丸子系列
+    catalogIndex: 3
+    smallImages: xilie3.jpg
+    images: wanzi.png
+
+  - !!models.CatalogModel
+    name: 烧烤系列
+    catalogIndex: 4
+    smallImages: xilie4.jpg
+    images: shaokao.png
+
+
+# Products
+products:
+
+  - !!models.ProductModel
+    name: 珠海口味虾
+    images: zhaopai1.jpg
+    shortDesc: 18种香料精心制作,回味在舌尖
+    price: 91
+    isHotSale: False
+    isZhaoPai: True
+    soldNumber: 200
+
+  - !!models.ProductModel
+    name: 珠海油焖大虾
+    images: zhaopai2.jpg,zhaopai6.jpg
+    shortDesc: 18种香料精心制作,回味在舌尖
+    price: 90
+    isHotSale: True
+    isZhaoPai: True
+    soldNumber: 1000
+
+  - !!models.ProductModel
+    name: 水煮牛肉
+    images: zhaopai3.jpg,zhaopai6.jpg
+    shortDesc: 18种香料精心制作,回味在舌尖
+    price: 70
+    isHotSale: True
+    isZhaoPai: True
+    soldNumber: 23123
+
+  - !!models.ProductModel
+    name: 干锅田鸡
+    images: zhaopai4.jpg
+    shortDesc: 18种香料精心制作,回味在舌尖
+    price: 40
+    isHotSale: False
+    isZhaoPai: True
+    soldNumber: 123123
+    
+  - !!models.ProductModel
+    name: 剁椒鱼头
+    images: zhaopai5.jpg,
+    shortDesc: 18种香料精心制作,回味在舌尖
+    price: 70
+    isHotSale: False
+    isZhaoPai: True
+    soldNumber: 123
+    
+  - !!models.ProductModel
+    name: 香辣蟹
+    images: zhaopai6.jpg,zhaopai7.jpg
+    shortDesc: 18种香料精心制作,回味在舌尖
+    price: 40
+    isHotSale: True
+    isZhaoPai: True
+    soldNumber: 12312
+    
+  - !!models.ProductModel
+    name: 香虾沙虾
+    images: zhaopai7.jpg
+    shortDesc: 18种香料精心制作,回味在舌尖
+    price: 70
+    isHotSale: False
+    isZhaoPai: True
+    soldNumber: 1231
+    
+  - !!models.ProductModel
+    name: 酸菜鱼火锅
+    images: zhaopai8.jpg
+    shortDesc: 18种香料精心制作,回味在舌尖
+    price: 40
+    isHotSale: False
+    isZhaoPai: True
+    soldNumber: 1
+
+
+# FoodComments
+foodcomments:
+
+  - !!models.FoodcommentModel
+    description: 珠海小龙虾好吃
+    images: zhaopai1.jpg
+
+  - !!models.FoodcommentModel
+    description: 珠海小龙虾好吃
+    images: zhaopai2.jpg
+
+  - !!models.FoodcommentModel
+    description: 水煮牛肉好吃
+    images: zhaopai3.jpg
+
+  - !!models.FoodcommentModel
+    description: 干锅田鸡好吃
+    images: zhaopai4.jpg
+
+  - !!models.FoodcommentModel
+    description: 赞一个,剁椒鱼头很正宗
+    images: zhaopai5.jpg
+
+  - !!models.FoodcommentModel
+    description: 螃蟹很划算
+    images: zhaopai6.jpg,xinpin3.jpg
+
+  - !!models.FoodcommentModel
+    description: 下次还会光顾
+    images: zhaopai7.jpg
+    
+  - !!models.FoodcommentModel
+    description: 下次还会光顾
+    images: zhaopai8.jpg
+
+
+# Themes
+themes:
+
+  - !!models.ThemeModel
+    name: 不辣
+    images: zhaopai1.jpg,zhaopai2.jpg
+
+  - !!models.ThemeModel
+    name: 微辣
+    images: zhaopai1.jpg,zhaopai2.jpg
+
+  - !!models.ThemeModel
+    name: 麻辣
+    images: zhaopai1.jpg,zhaopai2.jpg
+
+  - !!models.ThemeModel
+    name: 不辣
+    images: zhaopai2.jpg,zhaopai1.jpg
+
+  - !!models.ThemeModel
+    name: 微辣
+    images: zhaopai2.jpg,zhaopai1.jpg
+
+  - !!models.ThemeModel
+    name: 麻辣
+    images: zhaopai2.jpg,zhaopai3.jpg
+
+  - !!models.ThemeModel
+    name: 不辣
+    images: zhaopai3.jpg
+
+  - !!models.ThemeModel
+    name: 微辣
+    images: zhaopai3.jpg,zhaopai2.jpg
+
+  - !!models.ThemeModel
+    name: 麻辣
+    images: zhaopai3.jpg
+
+  - !!models.ThemeModel
+    name: 不辣
+    images: zhaopai4.jpg,zhaopai2.jpg
+
+  - !!models.ThemeModel
+    name: 微辣
+    images: zhaopai4.jpg,zhaopai2.jpg
+
+  - !!models.ThemeModel
+    name: 麻辣
+    images: zhaopai4.jpg
+
+
+# shoppingCart
+shoppingcartitem:
+
+  - !!models.ShoppingCartItemModel
+    quantity: 2
+
+  - !!models.ShoppingCartItemModel
+    quantity: 3
+
+  - !!models.ShoppingCartItemModel
+    quantity: 1
+
+
+# Orders
+orders:
+
+  - !!models.OrderModel
+    orderNo: 100100100
+    price: 138
+    quantity: 2,1
+    themeName: 微辣
+    status: 4
+
+  - !!models.OrderModel
+    orderNo: 100100101
+    price: 99
+    quantity: 1
+    themeName: 中辣
+    status: 1
+
+  - !!models.OrderModel
+    orderNo: 100100101
+    price: 88
+    quantity: 1
+    themeName: 麻辣
+    status: 6
+
+# Infos
+infos:
+
+   - !!models.InfoModel
+     images: jiechan.jpg
+     classify: guanggao
+
+   - !!models.InfoModel
+     images: xinpin1.jpg
+     classify: guanggao
+
+   - !!models.InfoModel
+     images: xinpin3.jpg
+     classify: guanggao

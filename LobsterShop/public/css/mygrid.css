@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+.gridStyle{
+	border: 1 px solid rgb(212, 212, 212);
+	width: 100%;
+	height: 100%
+}
+.gridStyleSmall{
+	border: 1 px solid rgb(212, 212, 212);
+	width: 90%;
+	height: 90%
+}

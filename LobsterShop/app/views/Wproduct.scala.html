@@ -1,0 +1,201 @@
+@frame("产品详情", "WproductApp", "WproductController") {
+    <meta charset="UTF-8">
+    <div class="P-marry">
+<script>
+
+window.onload = function(){
+	
+	setInterval("self.ce2()",1);
+	
+}
+function ce2(){
+	var spe = document.getElementById("carspan").innerHTML ;
+	if(spe == 0){
+		 document.getElementById("carspan").style.display="none"
+	}	
+	if(spe > 0){
+		 document.getElementById("carspan").style.display=""
+	}
+
+/*    $(".bigimage1").click(function(){
+        $(".bigimage1").hide();
+    });
+
+    $(".bigimage").click(function(){
+        $(".bigimage1").show();
+    });*/
+
+}
+</script>
+
+<div class="P-marry">
+
+	<carousel interval="myInterval"> <slide
+		ng-repeat="slide in slides" active="slide.active"> <img
+		ng-src="{{slide.image}}" style="margin: auto;    width: 100%;">
+	<div class="carousel-caption"></div>
+	</slide> </carousel>
+</div>
+<div class="order">
+	<div class="details">
+		<p class="details-p1">
+			<b> <!-- <span ng-bind="product.alcoholDegree"
+				ng-show="Product.alcoholDegree>1"></span><span
+				ng-show="Product.alcoholDegree>1">度</span>  <span
+				ng-bind="product.ml"></span>ml  <br> --> <span
+                ng-bind="product.name"></span>
+                </b>
+            </p>
+            <p class="details-p2" ng-bind="product.shortDesc"></p>
+            <p class="details-p3">
+                <b><span ng-bind="selectprice  | currency: '￥'"></span></b>
+
+            </p>
+        </div>
+
+            <!-- <div class="color" ng-if="product.canPaint || product.canCarve">
+		<div style="width: 15%; float: left; margin: 3% 0 0 2%;">
+			<span class="color-span1">工艺：</span>
+		</div>
+		<div class="color-div">
+			<div class="themeColor" style=""
+				ng-repeat="canDecoration in canDecorations"
+				ng-click="selectDecoration($index)"
+				ng-class="{true: 'selectTheme'}[$index === selectedDecorationDiv]">
+				<b ng-bind="canDecoration"></b>
+			</div>
+		</div> -->
+    </div>
+    <div class="color" ng-if="product.themes.length > 0">
+        <div style="width: 100% ; height: 20px ;">
+            <span class="color-span1">美食口味</span>
+        </div>
+        <div class="color-div">
+            <div class="themeColor" style="" ng-repeat="theme in Themes"
+            ng-click="select($index)"
+            ng-class="{true: 'selectTheme'}[$index === selectedThemeDiv]">
+                <b ng-bind="theme.name"></b>
+            </div>
+        </div>
+    </div>
+        <!-- <div class="color" ng-show="winebodys[0].name != '酒具'">
+		<div style="width: 15%; float: left; margin: 3% 0 0 2%;">
+			<span class="color-span1">规格：</span>
+		</div>
+		<div class="color-div">
+			<div class="themeColor" style=""
+				ng-repeat="bottleSpec in bottleSpecs"
+				ng-click="selectBottleSpec($index)"
+				ng-class="{true: 'selectTheme'}[$index === selectedBottleSpecDiv]">
+				<b ng-bind="bottleSpec"> </b>斤
+			</div>
+		</div>
+	</div> -->
+
+    <div class="number clear">
+        <div style="float: left ; width:50% ; line-height: 40px ; font-size: 16px ;">
+            购买数量
+        </div>
+        <div style="float: right ; width:40% ; margin-top: 5px ;">
+            <p id="min" ng-click="setMinus()">-</p>
+            <input ng-model="quantity" id="text_box" type="text" readOnly="true">
+            <p id="add" ng-click="setAdd()">+</p>
+        </div>
+
+            <!-- <div class="custom">
+			<a class="a-custom"
+				href="/w/pay?pid={{product.id}}&num={{quantity}}&theme={{encodeContent(selectedTheme.name)}}&themeId={{selectedTheme.id}}&image={{selectedTheme.images}}&userId=2&price={{selectprice}}&kouwei={{selectedTheme.name}}&productAmount={{selectprice * quantity}}">
+				立即定制 </a>
+		</div> -->
+    </div>
+
+
+    <div class="color" ng-show="winebodys[0].name != '酒具'"
+    style="margin-top: 10px ; font-size: 13px ;">
+        <div style="width: 100% ; height: 29px ;">
+            <span class="color-span1">美食评价(<span ng-bind="Commentnumber"></span>)</span>
+        </div>
+        <div class="color-div"
+        ng-repeat="comment in Comments | limitTo:number"
+        style="padding: 12px 0px ; border-bottom: 1px solid #faf6f2 ; border-top: 1px solid #faf6f2 ; width: 95% ;">
+            <p style="font-size: 13px ; color: black ;" ng-bind="comment.userName">
+                <span></span>
+            </p>
+            <p style="font-size: 13px ; color: #333333 ;"
+            ng-bind="comment.description"></p>
+            <div class="bigimage"  ng-click="show($index)">
+                <img ng-repeat="Commentimage in Comments[$index].imageList"
+                ng-src='/showimg/thumb/{{Commentimage}}'
+                style="width:70px ;float:left; " ng-if="Commentimage.length > 0">
+            </div>
+            <div class="bigimage1"  ng-if="comment.show" ng-click="hide($index)">
+                <div class="bigimage2">
+                    <img ng-repeat="Commentimage in Comments[$index].imageList"
+                    ng-src='/showimg/upload/{{Commentimage}}'
+                    style="width:100% ;" ng-if="Commentimage.length > 0">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="number3" style="" ng-hide="number > 1 || Commentnumber === 0">
+            <!-- <div style="width: 22%; float: left; margin: 3% 0 0 0.5%;">
+			<span class="color-span1">购买数量：</span>
+		</div>
+		<div id="min" ng-click="setMinus()">-</div>
+		<input ng-model="quantity" id="text_box" type="text">
+		<div id="add" ng-click="setAdd()">+</div> -->
+        <div class="custom2" style="" ng-click="lookAll()">
+            <a class="a-custom" style="color: #f08300"> 查看全部评价 </a>
+        </div>
+
+    </div>
+
+    <div class="number3" style="" ng-if="number > 1">
+        <div class="custom2" style="" ng-click="top()">
+            <a class="a-custom" style="color: #f08300"> 已经到底啦↑ </a>
+        </div>
+    </div>
+
+<div class="foot" style="height: 50px; padding: 0; background:#931e20;z-index: 10;">
+	<ul style="height: 50px;">
+
+@*		<li class="foot1"
+			style="padding: 0; width: 33.3%; background: #eeeeee; height: 52px;"><a
+			href="/w/cart"><img src='@routes.Assets.at("img/gouwuc.png")' alt=""
+				style="vertical-align: middle; width: 44px; margin-top: 5px;"><span
+				style="color: #f08300; font-size: 14px; vertical-align: sub;" >(<span ng-bind="cart | cartCalculate"></span>)<!-- (@session.get("CART") --></span></a></li>
+		<li class="foot2"
+			style="padding: 0; width: 33.3%; background: #f08300; height: 52px;" ng-click='addCart(product,quantity)'><a
+			style="vertical-align: middle;    font-size: 14px;"><br />加入购物车<!-- (@session.get("CART")) --></a></li>
+		<li class="foot3"
+			style="padding: 0; width: 33.4%; background: #931e20; height: 52px;" ng-click="ImmediateOrder(product)"><a
+			style="vertical-align: middle;    font-size: 14px;"
+			><br />立即下单</a></li>*@
+		@*href="/w/pay?pid={{product.id}}&num={{quantity}}&theme={{encodeContent(selectedTheme.name)}}&themeId={{selectedTheme.id}}&image={{selectedTheme.images}}&userId=2&price={{selectprice}}&kouwei={{selectedTheme.name}}&productAmount={{selectprice * quantity}}"*@
+
+		<li class="foot1"style="padding: 0; width: 33.3%; background: #eeeeee; height: 50px;">
+			<a href="/w/cart?storeId={{storeId}}">
+				<img src='@routes.Assets.at("img/gouwuc.png")' alt="" style="vertical-align: middle; width: 44px; margin-top: 5px;">
+				<span style="color: #f08300; font-size: 14px; vertical-align: sub; position: relative;" >
+					<span ng-bind="cart | cartCalculate" class="carspan" id="carspan"></span><!-- (@session.get("CART") -->
+				</span>
+			</a>
+		</li>
+		<li class="foot2" style="padding: 0; width: 33.3%; background: #f08300; height: 50px;" ng-click='addCart(product,quantity)'>
+		<a style="vertical-align: middle;    font-size: 14px;" ><br />加入购物车<!-- (@session.get("CART")) --></a>
+		</li>
+		<li class="foot3"style="padding: 0; width: 33.4%; background: #931e20; height: 50px;">
+			<a style="vertical-align: middle; font-size: 14px;" ng-click="ImmediateOrder(product)">
+				<br />立即下单
+			</a>
+		</li>
+	</ul>
+</div>
+
+<div id="okcat" style="display:none;position: fixed; width: 150px;  height: 60px; background-color: rgba(0, 0, 0, 0.5); left: 0; right: 0; margin: auto; color: #fff;  top: 41%;text-align: center; font-size: 18px;  line-height: 60px;border-radius: 10px;">
+	已加入购物车
+</div>
+
+}
+<script src='@routes.Assets.at("js/controllers/Wproduct_controller.js")'></script>
+<script src='@routes.Assets.at("js/ui-bootstrap-tpls-0.12.0.min.js")'></script>

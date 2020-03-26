@@ -1,0 +1,324 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+#GET           /                                          controllers.Application.blank()
+GET           /                                            controllers.Application.blankPage4Platform()
+GET           /check                                       controllers.Application.checkAlive()
+#GET           /wine                                      controllers.Application.winePage()
+GET           /test                                        controllers.WeiXinController.test()
+GET           /session/clear                               controllers.Application.sesseionClear()
+
+PUT           /cart/set                                    controllers.Application.setCart()
+GET           /cart/clear                                  controllers.Application.clearCart()
+GET           /cart/get                                    controllers.Application.getCart()
+
+GET           /store/set                                   controllers.Application.setStore(storeId: Long)
+GET           /store/get                                   controllers.Application.getStore()
+
+GET           /p/wine                                      controllers.Application.winePcPage()
+GET           /p/themes                                    controllers.Application.themeOrderPage()
+GET           /p/themeProduc                               controllers.Application.themeProducPage()
+GET           /p/charitable                                controllers.Application.charitablePage()
+GET           /p/details                                   controllers.Application.detailsPage()
+GET           /p/make                                      controllers.Application.makePage()
+GET           /p/numCenter                                 controllers.Application.numCenterPage()
+GET           /p/pcMyorder                                 controllers.Application.pcMyorderPage()
+GET           /p/pcOrder                                   controllers.Application.pcOrderPage()
+GET           /p/pcPay                                     controllers.Application.pcPayPage()
+GET           /p/productAdd                                controllers.Application.productAddPage()
+GET           /p/themePct/:id                              controllers.Application.themePage(id :Long)
+GET           /p/aboutUs                                   controllers.Application.aboutUsPage()
+GET           /p/shopping                                  controllers.Application.shoppingPage()
+GET           /p/help                                      controllers.Application.helpPage()
+
+GET           /w/one                                      controllers.Application.onePage(resellerCode :String ?="")
+GET           /w/wine                                      controllers.Application.winePage(resellerCode :String ?="")
+GET           /w/pay                                       controllers.Application.payPage()
+GET           /w/marry/:id                                 controllers.Application.marryPage(id :Long)
+GET           /w/Wproduct/:id                              controllers.Application.WproductPage(id :Long)
+GET           /w/order                                     controllers.Application.orderPage()
+GET           /w/location                                  controllers.Application.locationPage()
+GET           /w/addlocation                                  controllers.Application.addlocationPage()
+GET           /w/userCenter                                controllers.Application.userCenterPage()
+GET           /w/myLocation                                controllers.Application.myLocationPage()
+GET           /w/myOrder                                   controllers.Application.myOrderPage()
+GET           /w/distributor                               controllers.Application.distributorPage()
+GET           /w/DistributionOrder                         controllers.Application.DistributionOrderPage()
+GET           /w/QRcode                                    controllers.Application.QRcodePage()
+GET           /w/team                                      controllers.Application.teamPage()
+GET           /w/process                                   controllers.Application.processPage()
+GET           /w/allProduct                                controllers.Application.allProductPage()
+GET           /w/invoiceTitle                              controllers.Application.invoiceTitlePage()
+GET           /w/collect                                   controllers.Application.collectPage()
+GET           /w/about                                     controllers.Application.aboutPage()
+GET           /w/weixinPay                                 controllers.Application.weixinPayPage()
+GET           /w/error                                     controllers.Application.errorPage()
+GET           /w/OrderMessage                              controllers.Application.OrderMessagePage()
+GET           /w/set                                       controllers.Application.setPage()
+GET           /w/cart                                      controllers.Application.catPage()
+GET           /w/evaluate                                  controllers.Application.evaluatePage()
+GET           /w/privilege                                 controllers.Application.privilegePage()
+GET           /w/myPrivilege                               controllers.Application.myPrivilegePage()
+GET           /w/HotSaleProducts                           controllers.Application.HotSaleProductsPage()
+GET           /w/bargain                                   controllers.Application.bargainPage()
+GET           /w/bargain4friends/:aid                      controllers.Application.bargain4FriendsPage(aid :Long)
+GET           /bargain/go/:aid                             controllers.WeiXinController.bargaingo(aid :Long)
+GET           /w/buyimmediately                            controllers.Application.buyImmediatelyPage()
+
+GET           /w/bargainactivityend                        controllers.Application.bargainactivityendPage()
+# Backend management
+GET           /admin                                       controllers.Application.backendPage()
+GET           /admin/company                               controllers.CompanyController.backendPage()
+GET           /admin/ads                                   controllers.InfoController.backendPage()
+GET           /admin/catalogs                              controllers.CatalogController.backendPage()
+GET           /admin/products                              controllers.ProductController.backendPage()
+GET           /admin/themes                                controllers.ThemeController.backendPage()
+GET           /admin/orders                                controllers.OrderController.backendPage()
+GET           /admin/users                                 controllers.UserController.backendPage()
+GET           /admin/shipprices                            controllers.ShipAreaPriceController.backendPage()
+GET           /admin/foodcomments                          controllers.FoodcommentController.backendPage()
+GET           /admin/promotions                            controllers.PromotionController.backendPage()
+GET           /admin/coupons                               controllers.CouponController.backendPage()
+GET           /admin/fondoutrequests                       controllers.FondOutRequestController.backendPage()
+GET           /admin/EnjoyTheCode                          controllers.EnjoyTheCodeController.backendPage()
+GET           /admin/LineActivities                        controllers.LineActivitiesController.backendPage()
+GET           /admin/lineactivities                        controllers.ActivityHistoryController.backendPage()
+GET           /admin/commercialactivities                  controllers.ProductController.CommercialActivitiesPage()
+GET           /admin/stores                                controllers.StoreController.backendPage()
+
+
+# 登录验证
+GET           /login                                       controllers.Application.login()
+POST          /login                                       controllers.Application.authenticate()
+GET           /logout                                      controllers.Application.logout()
+
+# 后台登录验证
+GET           /admin/login                                 controllers.Application.backendLogin()
+GET           /admin/auth                                  controllers.Application.backendAuthenticate()
+GET           /admin/logout                                controllers.Application.backendLogout()
+
+
+# Member
+POST          /members/login                               controllers.MemberController.login()
+POST          /members/register/huanxin                    controllers.MemberController.registerAsync()
+POST          /members/register                            controllers.MemberController.register()
+POST          /members/changepsw                           controllers.MemberController.changePsw()
+GET           /members/forgetpsw                           controllers.MemberController.forgetPsw(username: String)
+PUT           /members/moreinfo/:id                        controllers.MemberController.updateMoreInfo(id :Long)
+GET           /members                                     controllers.MemberController.getAllMember()
+
+# Company Info
+GET           /company                                     controllers.CompanyController.getCompanyInfo()
+PUT           /company/:id                                 controllers.CompanyController.updateCompany(id :Long)
+
+
+# Foodcomment
+GET           /foodcomments                                controllers.FoodcommentController.getAll(productId :Long ?=0, page: Integer ?= 1, size: Integer ?=0,storeId :Long ?=0)
+GET           /foodcomments/:id                            controllers.FoodcommentController.get(id: Long)
+DELETE        /foodcomments/:id                            controllers.FoodcommentController.delete(id: Long)
+POST          /foodcomments/users/:id                      controllers.FoodcommentController.add(id: Long)
+
+# shoppingCart
+GET           /shoppingcarts/users/:id                     controllers.ShoppingCartController.get(id: Long)
+GET           /shoppingcarts                               controllers.ShoppingCartController.getAll()
+#POST          /shoppingcart/products/:id/users/:id              controllers.ShoppingCartController.add(id: Long, pid Long)
+#PUT           /shoppingcart/products/:id/users/:id              controllers.ShoppingCartController.update(id: Long, pid Long)
+
+#Infos
+GET           /infos                                       controllers.InfoController.getAllInfos(classify: String ?="", page: Integer ?= 1, size: Integer ?=0)
+POST          /infos                                       controllers.InfoController.addInfo()
+DELETE        /infos/:id                                   controllers.InfoController.deleteInfo(id: Long)
+PUT           /infos/:id                                   controllers.InfoController.updateInfo(id: Long)
+GET           /infos/:id                                   controllers.InfoController.getInfo(id: Long)
+
+#Stores
+GET           /stores                                      controllers.StoreController.getAll(storeId :Long ?=0,page: Integer ?= 1, size: Integer ?=0)
+POST          /stores                                      controllers.StoreController.add()
+DELETE        /stores/:id                                  controllers.StoreController.delete(id: Long)
+PUT           /stores/:id                                  controllers.StoreController.update(id: Long)
+GET           /stores/:id                                  controllers.StoreController.get(id: Long)
+
+
+# 收货地址
+GET           /users/:id/shipinfos                         controllers.ShipInfosController.getAllShipInfos(id: Long,storeId :Long ?=0)
+POST          /users/:id/shipinfos                         controllers.ShipInfosController.addShipInfo(id: Long)
+DELETE        /users/:id/shipinfos/:sid                    controllers.ShipInfosController.deleteShipInfo(id: Long, sid: Long)
+PUT           /users/:id/shipinfos/:sid                    controllers.ShipInfosController.updateShipInfo(id: Long, sid: Long)
+GET           /users/:id/shipinfos/:sid                    controllers.ShipInfosController.getShipInfo(id: Long, sid: Long)
+
+# 用户
+PUT           /users/:id                                   controllers.UserController.updateUser(id :Long)
+GET           /users                                       controllers.UserController.getAllUsers(keyword :String ?="", page: Integer ?= 1, size: Integer ?=0)
+GET           /users/:id                                   controllers.UserController.getUser(id: Long)
+PUT           /users/:id/status/:userStatus                controllers.UserController.updateUserStatus(id: Long, userStatus: Integer)
+# 删除用户
+#GET           /delete/users/:id                          controllers.UserController.delete(id: Long)
+#POST          /users                        	 controllers.UserController.addUser()
+GET           /users/check/weixin                          controllers.UserController.checkWeixinUser(openId: String ?="")
+POST          /users/add/weixin                            controllers.UserController.addWeixinUser(openId: String ?="")
+
+# 获取当前用户
+GET           /users/current/login                         controllers.UserController.getCurrentUser(id: Long ?=0)
+
+# Catalogs
+GET           /catalogs                                    controllers.CatalogController.getAllCatalogs(page: Integer ?= 1, size: Integer ?=0, orderBy :String ?="", sort :String ?="")
+GET           /catalogs/:id                                controllers.CatalogController.getCatalog(id: Long)
+GET           /catalogs/:id/products                       controllers.CatalogController.getCatalogProducts(id: Long, page: Integer ?= 1, size: Integer ?=0,storeId: Long ?= 0)
+GET           /catalogs/:id/productnum                     controllers.CatalogController.getCatalogProductNum(id: Long)
+POST          /catalogs                                    controllers.CatalogController.addCatalog()
+DELETE        /catalogs/:id                                controllers.CatalogController.deleteCatalog(id: Long)
+PUT           /catalogs/:id                                controllers.CatalogController.updateCatalog(id :Long)
+
+# Products
+GET           /products                                    controllers.ProductController.getAllProducts(catalogId :Long ?=0,storeId :Long ?=0, keywordProperty :String ?="", keyword :String ?="", isHotSale: Boolean ?=false,isActiveProduct: Boolean ?=false, page: Integer ?= 1, size: Integer ?=0, orderBy :String ?="", sort :String ?="")
+GET           /products/:id                                controllers.ProductController.getProduct(id: Long, storeId :Long ?=0)
+DELETE        /products/:id                                controllers.ProductController.deleteProduct(id: Long)
+POST          /products                                    controllers.ProductController.addProduct()
+GET           /search/products                             controllers.ProductController.searchProduct(filter: String, flavor: String, like: Boolean ?=false, orderBy: String ?="soldNumber", order: String ?="name", page: Integer ?= 1, size: Integer ?=0)
+PUT           /products/:id                                controllers.ProductController.updateProduct(id :Long)
+
+# Themes
+GET           /themes                                      controllers.ThemeController.getAll(page: Integer ?= 1, size: Integer ?=0)
+GET           /themes/:id                                  controllers.ThemeController.get(id: Long)
+DELETE        /themes/:id                                  controllers.ThemeController.delete(id: Long)
+POST          /themes                                      controllers.ThemeController.add()
+PUT           /themes/:id                                  controllers.ThemeController.update(id :Long)
+
+# Orders
+POST          /orders                                      controllers.OrderController.addOrder()
+GET           /orders                                      controllers.OrderController.getAllOrders(status: Integer ?= -1, storeId :Long ?=0, keyword: String ?= "", page: Integer ?= 1, size: Integer ?= 0)
+GET           /orders/:id                                  controllers.OrderController.getOrder(id :Long)
+PUT           /orders/:id                                  controllers.OrderController.updateOrder(id :Long)
+PUT           /orders/:id/status/:status                   controllers.OrderController.updateOrderStatus(id :Long, status: Int)
+PUT           /orders/userupdate/:id/status/:status        controllers.OrderController.updateOrderStatusByUser(id :Long, status: Int)
+GET           /orders/user/:refBuyerId                     controllers.OrderController.getOrdersByUser(status: Integer ?= -1, refBuyerId :Long, storeId :Long ?=0, page: Integer ?= 1, size: Integer ?= 0)
+GET           /orders/no/:orderNo                          controllers.OrderController.getOrderByOrderNo(orderNo :String)
+GET           /orders/check/kill                           controllers.OrderController.checkAndKillUselessOrders()
+PUT           /orders/wxpay/update/:id                     controllers.OrderController.updateOrderStatusByWxPay(id :Long)
+GET           /report/orders                               controllers.ReportController.exportOrderReport(all :Boolean ?=false, storeId :Long ?=0)
+
+# ShipAreaPrices
+GET           /shipareaprices                              controllers.ShipAreaPriceController.getAllShipAreaPrices(page: Integer ?= 1, size: Integer ?=0, keyword: String ?= "",city: String ?= "", storeId :Long ?=0)
+GET           /allshipareaprices                              controllers.ShipAreaPriceController.getAllShipAreaPrice(page: Integer ?= 1, size: Integer ?=0, keyword: String ?= "",city: String ?= "", storeId :Long ?=0)
+GET           /shipareaprices/:area/area                   controllers.ShipAreaPriceController.getByArea(area: String, storeId :Long ?=0)
+GET           /shipareaprices/:id                          controllers.ShipAreaPriceController.getShipAreaPrice(id :Long)
+PUT           /shipareaprices/:id                          controllers.ShipAreaPriceController.updateShipAreaPrice(id :Long)
+DELETE        /shipareaprices/:id                          controllers.ShipAreaPriceController.deleteShipAreaPrice(id :Long)
+POST          /shipareaprices                              controllers.ShipAreaPriceController.addShipAreaPrice()
+
+#促销活动
+GET           /promotions                                  controllers.PromotionController.getAll(promotionType: String ?="", page: Integer ?= 1, size: Integer ?=0)
+GET           /promotions/:id                              controllers.PromotionController.get(id :Long)
+PUT           /promotions/:id                              controllers.PromotionController.update(id :Long)
+DELETE        /promotions/:id                              controllers.PromotionController.delete(id :Long)
+POST          /promotions                                  controllers.PromotionController.add()
+
+# Coupon
+GET           /coupons                                     controllers.CouponController.getAll(userId: Long ?=0, page: Integer ?= 1, size: Integer ?=0)
+GET           /coupons/:id                                 controllers.CouponController.get(id :Long)
+PUT           /coupons/:id                                 controllers.CouponController.update(id :Long)
+DELETE        /coupons/:id                                 controllers.CouponController.delete(id :Long)
+POST          /coupons                                     controllers.CouponController.add()
+
+# 分销相关
+# 获取下线用户
+GET           /downlines/users/:id                         controllers.UserController.getDownLineUsers(id: Long, page: Integer ?= 1, size: Integer ?=0)
+# 获取分销订单
+GET           /resellerorders/users/:id                    controllers.OrderController.getResellerOrders(id: Long)
+# 获取分销总销售额
+GET           /resellerorders/amount/users/:id             controllers.OrderController.getResellerOrderAmount(id: Long)
+# 计算订单分销
+PUT           /orders/resellers/calculate/:id              controllers.OrderController.doCalculate(id :Long)
+# 取消计算订单分销 TODO
+PUT           /orders/resellers/cancelcalculate/:id        controllers.OrderController.cancelCalculate(id :Long)
+
+#提款申请
+GET           /fondoutrequests                             controllers.FondOutRequestController.getAll(refUserId: Long ?= 0, page: Integer ?= 1, size: Integer ?=0)
+GET           /fondoutrequests/:id                         controllers.FondOutRequestController.get(id :Long)
+#GET           /fondoutrequests/users/               	  controllers.FondOutRequestController.getUserFondouts(refUserId: Long ?= 0, page: Integer ?= 1, size: Integer ?=0)
+PUT           /fondoutrequests/:id/status/:status          controllers.FondOutRequestController.update(status :Integer, id :Long)
+DELETE        /fondoutrequests/:id                         controllers.FondOutRequestController.delete(id :Long)
+POST          /fondoutrequests                             controllers.FondOutRequestController.add()
+
+# CMS
+#GET           /                                     controllers.CMS.index()
+#GET           /login                                controllers.CMS.login()
+#GET           /cms                                  controllers.CMS.cms()
+
+#GET           /tags                                 controllers.CMS.getTags()
+#GET           /contents/tags/:tagNames              controllers.CMS.getContentsByTags(tagNames: String)
+#GET           /contents/tag/:tagName                controllers.CMS.getContentsByTag(tagName: String)
+#GET           /contents/catalog/:catalogName        controllers.CMS.getContentsByCatalog(catalogName: String)
+
+#GET           /contents/filter/:filter/:fvalue                  controllers.CMS.getContentByFilter(filter: String, fvalue: String, like: Boolean ?=false, orderBy: String ?="createAt", order: String ?="desc", page: Integer ?= 1, size: Integer ?=0)
+
+#todo conteng -> contents, cid -> id    (?? by michael)
+PUT           /content                                     controllers.CMS.saveContent()
+POST          /content                                     controllers.CMS.saveContent()
+DELETE        /content/:id                                 controllers.CMS.deleteContent(id : Long)
+POST          /upload/image                                controllers.Application.uploadImage()
+
+
+# 3rd Parties
+#GET           /qiniu/uploadtoken                                controllers.UtilController.getQiniuUploadToken(bucketName :String)
+#GET           /qiniu/downloadtoken                              controllers.UtilController.getQiniuDownloadToken(url :String)
+#GET           /member/huanxin/token                             controllers.MemberController.huanxinToken()
+
+# 公众号服务器校验
+GET           /weixin/serververify                         controllers.WeiXinController.serverVerify(signature :String, timestamp :String, nonce :String, echostr :String)
+POST          /weixin/serververify                         controllers.WeiXinController.serverNotification()
+
+GET           /dowxuser                                    controllers.WeiXinController.doWxUser(code :String ?="", resellerCode :String ?="", state :String ?="")
+GET           /wxpay/pay                                   controllers.WeiXinController.prepareWxPay(oid :Long ?=0)
+GET           /wxpay/pay/go                                controllers.WeiXinController.doWxPay()
+POST          /wxpay/pay/notify                            controllers.WeiXinController.getPayNotify()
+GET           /users/renew/barcode                         controllers.WeiXinController.renewAllUserBarcode()
+GET           /users/renew/barcode/:id                     controllers.WeiXinController.renewUserBarcode(id :Long)
+GET           /users/sync/info                             controllers.WeiXinController.syncUserInfo()
+GET           /wx/menu/add                                 controllers.WeiXinController.addMenu()
+GET           /wx/msg/send                                 controllers.WeiXinController.sendMsg(openId :String?="", msg :String?="")
+
+#Backend service
+#POST        /backend/login                    controllers.BackendController.login()
+
+
+# Map static resources from the /public folder to the /assets URL path
+#GET           /assets/weixin/                             controllers.Assets.at(path="/public", file="/weixin/index.html")
+GET           /assets/*file                                controllers.Assets.at(path="/public", file)
+GET           /showImage/:name                             controllers.Application.showImage(name: String)
+GET           /showBarcode/:name                           controllers.Application.showBarcode(name: String)
+GET           /showimg/:folder/:name                       controllers.Application.showImg(folder :String, name: String)
+GET           /genthumb                                    controllers.Application.generateAllThumbNailImg(tagsize :Float ?=0)
+
+
+# enjoyTheCode
+GET           /enjoyTheCode                                controllers.EnjoyTheCodeController.getAll(page: Integer ?= 1, size: Integer ?=0,refUserId: Long ?=0,number: Integer ?=0)
+GET           /enjoyTheCode/:id                            controllers.EnjoyTheCodeController.get(id :Long)
+PUT           /enjoyTheCode/:id                            controllers.EnjoyTheCodeController.update(id :Long)
+DELETE        /enjoyTheCode/:id                            controllers.EnjoyTheCodeController.delete(id :Long)
+POST          /enjoyTheCode                                controllers.EnjoyTheCodeController.add()
+
+
+# LineActivities
+GET           /LineActivities                              controllers.LineActivitiesController.getAll(page: Integer ?= 1, size: Integer ?=0, sponsorId: Long ?=0)
+GET           /LineActivities/:id                          controllers.LineActivitiesController.get(id :Long)
+PUT           /LineActivities/:id                          controllers.LineActivitiesController.update(id :Long)
+DELETE        /LineActivities/:id                          controllers.LineActivitiesController.delete(id :Long)
+POST          /LineActivities                              controllers.LineActivitiesController.add()
+#PUT          /lineActivities/activityHistory                              controllers.LineActivitiesController.put()
+
+# activityhistory
+GET           /activityhistory                             controllers.ActivityHistoryController.getAll(page: Integer ?= 1, size: Integer ?=0,cutUserId: Long ?=0 , theLineActivities: String ?="",activitiesProductId: Long ?=0 )
+GET           /activityhistory/:id                         controllers.ActivityHistoryController.get(id :Long)
+PUT           /activityhistory/:id                         controllers.ActivityHistoryController.update(id :Long)
+DELETE        /activityhistory/:id                         controllers.ActivityHistoryController.delete(id :Long)
+POST          /activityhistory                             controllers.ActivityHistoryController.add()
+
+# commercialactivities
+GET           /commercialactivities                        controllers.CommercialActivitiesController.getAll(page: Integer ?= 1, size: Integer ?=0)
+GET           /commercialactivities/:id                    controllers.CommercialActivitiesController.get(id :Long)
+PUT           /commercialactivities/:id                    controllers.CommercialActivitiesController.update(id :Long)
+DELETE        /commercialactivities/:id                    controllers.CommercialActivitiesController.delete(id :Long)
+POST          /commercialactivities                        controllers.CommercialActivitiesController.add()

@@ -1,0 +1,78 @@
+.location{
+	width:100%;
+	height:;
+	float:left;
+}
+div.location table{
+	width:100%;
+	margin-top:2%;
+}
+div.location tr{
+	float:left;
+    border-top: 2px solid #faf6f2;
+	width:100%;
+/* 	height:49px; */
+	background:#fff;
+/* 	padding-top:20px; */
+	font-size:14px;
+	color:#6E6E6E;	
+	padding:4% 0 4% 4%;
+}
+.td-text{
+/* 	border:1px solid #fff;  */
+
+}
+    .radio5-span1{
+    font-size:13px;
+    margin-left:18%;
+    width:60%;
+    }  
+ input[type='checkbox'].radio5 {
+ opacity:0; 
+ display:inline-block;
+  margin-left:100px;
+   }
+ label.radio5 {
+  background:url(../upload/radio2.png) no-repeat left center;
+   width:80%;
+   display:inline-block;
+   background-size:8% 95%;
+   }
+  input[type='checkbox'].radio5:checked + .radio5 {
+   background:url(../upload/radio.png) no-repeat left center;
+    background-size:8% 95%;
+    }	
+    .location-button1{
+	float:left;
+	width:90%;
+/* 	height:68px; */
+	background: #f08300;
+    color: #fff;
+    margin: 4% 0 4% 5%;
+    border-radius: 5px;
+    border: 1px solid #f08300;
+	font-size:16px;
+	font-weight:bold;
+	    padding: 2.5% 0 2.5% 0;
+	    text-align:center;
+	}
+	select {
+	border:1px solid #C8C8C8;
+	    border-radius: 4px; 
+	}
+	
+	
+	
+#form input.ng-pristine {
+	background:#fff;
+} 
+#form input.ng-dirty {
+	border:1px solid red;
+} 
+#form input.ng-valid {
+	/* background:yellow; */
+ 	border:1px solid #fff;
+} 
+/* #form input.ng-invalid {
+	background:red; 	
+}  */

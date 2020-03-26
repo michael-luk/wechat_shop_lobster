@@ -1,0 +1,195 @@
+﻿@pc_frame("产品详情", "detailsApp", "detailsController") { 
+<meta charset="UTF-8">
+<div class="details-top">
+  <div  class="wrap-left">
+   <div class="bigimg">
+   <img src='@routes.Assets.at("pc_images/bigimg.jpg")' id="mybigImg"/></div>
+   <ul class="thumb" id="mythumb">
+   <li><a><img src='@routes.Assets.at("pc_images/bigimg.jpg")' bigimgsrc='@routes.Assets.at("pc_images/bigimg.jpg")'/></a></li>
+    <li><a><img src='@routes.Assets.at("pc_images/bigimg.jpg")' bigimgsrc='@routes.Assets.at("pc_images/bigimg.jpg")'/></a></li>
+     <li><a><img src='@routes.Assets.at("pc_images/bigimg.jpg")' bigimgsrc='@routes.Assets.at("pc_images/bigimg.jpg")'/></a></li>
+      <li><a><img src='@routes.Assets.at("pc_images/bigimg.jpg")' bigimgsrc='@routes.Assets.at("pc_images/bigimg.jpg")'/></a></li>
+   </ul>
+  </div>
+  <div class="wrap-center">
+     <div class="detail-hd">
+     <h1 >	
+					 [婚庆系列] 永结同心龙鑫浩然酒 53度 500ml 
+	</h1>
+    <p class="newp">
+		喜上心头浓香型白酒，喜宴高档私人定制酒，一瓶起订。						
+			</p>
+    </div>
+    <div class="center-list">
+    <span>价   格:<b style="font-size:22px;
+    color:#b48f4f;">￥300.0</b></span>
+    <span>净含量：500ml</span>
+    <span>颜色：
+    <ul id="selectType">
+    <li>500ml   53%Vol.  紫色款</li><li>500ml   53%Vol.  黄色款</li>
+    <li>500ml   53%Vol.  黄色款</li><li>500ml   53%Vol.  黄色款</li>
+    <li>500ml   53%Vol.  黄色款</li><li>500ml   53%Vol.  黄色款</li>
+    <li>500ml   53%Vol.  黄色款</li> <li>500ml   53%Vol.  黄色款</li>
+    </ul>
+    </span>
+    <div style="clear:both"></div>
+    <span>数   量：
+    <div class="add jian">-</div>
+    <div class="num">5</div>
+    <div class="add jia">+</div> 库存：3000件</span>
+    <span>运费：<select>
+  <option value="">广东省运费</option>
+  <option value="">湖北省运费</option>
+  <option value="">山西省运费</option>
+  <option value="">湖南省运费</option>
+</select>
+  ￥30.0元  (满3瓶免运费)</span>
+    </div>
+    
+    <div class="list_line"></div>
+    
+    <div class="list_butt">
+    <a href="/p/productAdd" style="background-color:#121a31; color:#fff; font-size:18px;">立即定制</a>
+    <a><img src='@routes.Assets.at("pc_images/love_no.png")'/>收藏宝贝</a>
+    </div>
+  </div>
+   <div class="wrap-right">
+     <div class="look">
+        <s></s>
+        <span>看了又看</span>
+     </div>
+     <DIV class="roll_pic" style="height:430px; overflow:hidden">
+     <ul>
+     <li><img src='@routes.Assets.at("pc_images/roll_pic.jpg")'/><p>1[婚庆系列] 永结同心……</p></li>
+     <li><img src='@routes.Assets.at("pc_images/roll_pic.jpg")'/><p>2[婚庆系列] 永结同心……</p></li>
+     <li><img src='@routes.Assets.at("pc_images/roll_pic.jpg")'/><p>3[婚庆系列] 永结同心……</p></li>
+     <li><img src='@routes.Assets.at("pc_images/roll_pic.jpg")'/><p>4[婚庆系列] 永结同心……</p></li>
+     </ul></DIV>
+     <ul class="trigger">
+     <li class="more_up"><img src='@routes.Assets.at("pc_images/up.png")'/></li>
+     <li class="more_down"> <img src='@routes.Assets.at("pc_images/down.png")'/></li>
+     
+     </ul>
+   </div>
+</div>
+ <div style="clear:both"></div>
+<div class="details-bottom">
+    <div class="five_list">
+    <ul>
+    <li class="main">商品信息</li>
+    <li >图文详情</li>
+    <li>商品细节</li>
+    <li>定制流程</li>
+    <li>购买须知</li>
+    <li>关于龙鑫酒业</li>
+    </ul>
+    </div>
+      <div style="clear:both"></div> 
+    <div class="content_pic">1
+    <img src='@routes.Assets.at("pc_images/details.jpg")'/>
+    </div>
+    <div class="content_pic" style="display:none">2
+    <img src='@routes.Assets.at("pc_images/details.jpg")'/>
+    </div>
+    <div class="content_pic" style="display:none">3
+    <img src='@routes.Assets.at("pc_images/details.jpg")'/>
+    </div>
+    <div class="content_pic" style="display:none">4
+    <img src='@routes.Assets.at("pc_images/details.jpg")'/>
+    </div>
+    <div class="content_pic" style="display:none">5
+    <img src='@routes.Assets.at("pc_images/details.jpg")'/>
+    </div>
+    <div class="content_pic" style="display:none">6
+    <img src='@routes.Assets.at("pc_images/details.jpg")'/>
+    </div>
+</div>
+<div class="theme_line" style="margin-top:30px;"></div>
+   <div class="theme_process">
+   <img src='@routes.Assets.at("pc_images/process.jpg")'/>  
+</div>
+
+<script>
+    $(
+	function () {
+	    $("#selectType li").click(
+
+		function () {
+		    $("#selectType li").removeClass("cur");
+		    if ($(this).hasClass("cur")) {
+		        $(this).removeClass("cur");
+		    } else {
+		        $(this).addClass("cur");
+		    }
+		}
+	);
+
+	    $(".jia").click(
+	        function () {
+	            var shuliang = parseInt($(".num").text());
+	            shuliang++;
+	            $(".num").text(shuliang.toString());
+
+	        }
+	    );
+
+	    $(".jian").click(
+	        function () {
+	            var shuliang = parseInt($(".num").text());
+	            shuliang--;
+	            if (shuliang > 0) {
+	                $(".num").text(shuliang.toString());
+	            }
+
+	        }
+	    );
+
+	    $(".five_list li").click(
+	    function () {
+	        $(this).addClass("main").siblings().removeClass("main");
+	        var myindex = $(this).index();
+	        $(".content_pic").eq(myindex).show().siblings(".content_pic").hide();
+	    }
+	        );
+
+	    $("#mythumb a").hover(
+	        function () {
+	            var bigimgSrc = $(this).find("img").attr("bigimgSrc");
+	            $(this).parent().siblings().find("img").css({ "border": "1px solid #eee" });
+
+	            $(this).find("img").css({ "border": "1px solid red" });
+	            $("#mybigImg").src(bigimgSrc);
+	        }
+	    );
+
+	    //$(".roll_pic ul li").slice(2).clone().appendTo($(".roll_pic ul"));
+	    $(".more_up").click(
+            function () {
+
+                var myli = $(".roll_pic").find("li").outerHeight(true);
+                $(".roll_pic ul").stop(true, true).animate({ "margin-top": -myli * 2 + "px" }, 1000, function () {
+                    $(".roll_pic ul").css("margin-top", "0px");
+                    $(".roll_pic ul li").slice(0, 2).appendTo($(".roll_pic ul"));
+                });
+            }
+        );
+
+	    $(".more_down").click(
+            function () {
+
+                var myli = $(".roll_pic").find("li").outerHeight(true);
+                $(".roll_pic ul li").slice(2).prependTo($(".roll_pic ul"));
+
+                $(".roll_pic ul").css("margin-top", -myli * 2 + "px");
+                
+                    $(".roll_pic ul").stop(true, true).animate({ "margin-top": "0px" }, 1000, function () {
+
+                    });
+                
+            }
+        );
+
+	}
+);
+</script>
+}

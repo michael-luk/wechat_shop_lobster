@@ -1,0 +1,85 @@
+@pc_frame("订单结算", "pcOrder", "pcOrderController") { 
+<meta charset="UTF-8">
+<div class="order">
+  <div class="order_1">
+  <img style="vertical-align: middle;" src='@routes.Assets.at("pc_images/logo_2.jpg")'/>
+  <span style=" color:#121a31; font-size:18px;margin-left: 20px; ">结算页
+  </span>
+  </div>
+  
+  <div class="order_2">
+    <span>填写核对订单信息</span>
+    <div class="order_cont">
+      <div class="middle">
+        <div class="mid1">
+         <div>
+         <span class="getinf">收货人信息</span>
+         <span class="getadd"> 新增收货地址</span>
+         </div>
+         <div style="clear:both"></div>
+         <div>
+         <div class="selct">默认地址</div>
+         <span class="address">张明明   广东省 珠海市 香洲区 翠香路247号安平大厦11楼1107室     188****8888</span>
+         </div>
+         <div style="clear:both"></div>
+         <span class="getinf" >更多地址</span>  
+         <div style="clear:both"></div> 
+      <div class="order_line"></div>
+      </div>
+      <div style="clear:both"></div>
+       <div class="mid1">
+         <div>
+         <span class="getinf">支付方式</span>
+         </div>
+         <div style="clear:both"></div>
+         <div>
+         <div class="selct">在线支付</div>
+         <div class="no_selct">公司转账</div>
+         <div class="no_selct">邮局汇款</div>
+         </div>
+        
+         <div style="clear:both"></div>   
+      <div class="order_line"></div>
+      </div>
+      <div class="mid1">
+         <div>
+         <span class="getinf">送货清单</span>
+         </div> 
+         <div style="clear:both"></div>
+         <div class="list"><img src='@routes.Assets.at("pc_images/bigimg.jpg")'/>
+         <span class="list_p">[婚庆系列] 永结同心龙鑫浩然酒 53度 500ml<br /> 500ml   53%Vol.  黄色款</span>
+         <span class="list_m"><b style="color:#b48f4f">￥300.0</b>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;    X5</span>
+         </div> 
+       <div style="clear:both"></div>    
+      <div class="order_line"></div>
+      </div>
+      
+      <div class="mid1">
+         <div>
+         <span class="getinf">发票信息</span>
+         </div> 
+         <div style="clear:both"></div>
+        <span style="font-size:15px; color:#595e6e;">普通发票（纸质） &nbsp;&nbsp;      个人  &nbsp;&nbsp;     食品 &nbsp;&nbsp; <a style="color:#121a31; font-weight:bolder;">修改</a></span> 
+      <div class="order_line"></div>
+      </div>
+      
+<div class="right_bottom">
+    <span>3件商品，总商品金额：￥1500.00<br />
+(满3瓶免运费) 运费：￥0.00<br />
+应付总额：￥1500.00</span>
+    </div>     
+  </div>
+  <div class="kuangwai">
+  <div class="right_bottom">
+    <span>寄送至：广东省 珠海市 香洲区 翠香路247号安平大厦11楼1107室<br /> 收货人：张明明   188****8888
+应付总额：￥1500.00</span>
+    </div>  
+    <div class="sucess"><span>应付总额：￥<b style="font-size:22px; color:#ff0000;">1500.00</b></span><a href="/p/pcPay">提交订单</a>
+    </div>
+    </div>
+      
+      
+    </div>
+  </div>
+</div>
+}

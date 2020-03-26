@@ -1,0 +1,56 @@
+@frame("购物车", "CartApp", "CartController") {
+<meta charset="UTF-8">
+<div class="order-wine">
+	<div class="order-p1">
+		<img src='@routes.Assets.at("img/{{selectAllFlag | showClassByFlag}}")' alt="" style="width:20px;margin-right: 6px;" ng-click="selectAll()">
+		<span ng-click="selectAll()">全选</span>
+		<div class="cat-clean" style="padding: 4% 0 3% 0; max-height: 59px;" ng-click="deleteProcuct()">删除</div>
+	</div>
+	<div class="order-mg" ng-repeat="item in cart.items">
+
+		<div class="order-div1" ng-show = "item.product">
+			<div class="location-left" ng-click="selectLeft(item)" 
+			ng-class="{true: 'selectLeft'}[item.select == true]">
+				
+					<img src='@routes.Assets.at("img/{{item.product.select | showClassByFlag}}")' alt="" style="width:20px;margin-right: 6px;">
+			</div>
+			<div class="order-img">
+				<a href="/w/Wproduct/{{item.pid}}?storeId={{storeId}}"><img style="width: 100%; height: 100%;"
+					ng-src="/showimg/thumb/{{item.product.images | getFirstImage}}" alt="">
+					</a>
+			</div>
+
+			<div class="order-img" style="width: 60%; border: 1px solid #fff;">
+				<p class="order-p3">
+					<a href="/w/Wproduct/{{item.pid}}" style="color:#f08300;"><span ng-bind="item.product.name"></span></a> <br> <span
+						ng-bind="item.product.price | currency: '￥'" style="color: #f08300;"></span>
+
+				</p>
+				<div
+					style="float: left; width: 150px; height: 26px; margin-top: -6px;">
+					<div id="min" ng-click="setMinus($index)"
+						style="border-radius: 3px; color: black; width: 37px; height: 26px;">-</div>
+					<div id="text_box" 
+						style="border-radius: 2px; border: 1px solid #bda770; width: 37px; height: 26px;font-weight: 500;">
+						<span ng-bind="item.num"  style="font-size:14px;"></span>
+					</div>
+					<div id="add" ng-click="setAdd($index)"
+						style="border-radius: 3px; color: black; width: 37px; height: 26px;">+</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+<div class="foot" style="height:50px;padding:0;" ng-if="cart.items != null">
+		<ul style=" height: 50px;">
+			<li class="foot2" style="padding: 0 ;width:65%;background:#fff;height: 50px;"><a href="/w/allProduct?storeId={{storeId}}" style="color:black;font-size:13px;"><br />合计:&nbsp;<span style="color:#f08300;" ng-bind="cart | selectProductAmout | currency: '￥'"></span><!-- (已优惠15.0元) --></a></li>
+			<li class="foot3" style="padding: 0 ;width:35%;background:#f08300;height: 50px;" ng-click="Buy(cart)" ><a href="" style="color:#fff;"><br />立即下单</a></li>		
+				
+		</ul>
+	</div>
+	
+}
+<script src='@routes.Assets.at("js/controllers/cat_controller.js")'></script>

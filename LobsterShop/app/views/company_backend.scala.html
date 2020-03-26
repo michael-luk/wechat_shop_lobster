@@ -1,0 +1,310 @@
+@main("企业信息管理", "CompanyApp", "CompanyController") {
+
+<div class="page-content">
+	<div class="page-header">
+		<h1>企业信息管理</h1>
+	</div>
+	<!-- /.page-header -->
+
+	<div class="row">
+		<div class="col-xs-12">
+			<!-- PAGE CONTENT BEGINS -->
+
+			<form class="form-horizontal" role="form" name="myform" ng-submit="formSave(myform.$valid)" novalidate>
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-1"> 企业名称: </label>
+
+					<div class="col-sm-9">
+						<input type="text" id="form-field-1" name="name" placeholder="请输入信息" required ng-maxlength="30"
+							ng-model="companyInfo.name" class="col-xs-10 col-sm-5" />
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-2"> 企业描述: </label>
+
+					<div class="col-sm-9">
+						<textarea class="form-control" id="form-field-8" name="description1" required ng-maxlength="100"
+							placeholder="请输入信息"
+							ng-model="companyInfo.description1"></textarea>
+						<span class="help-inline col-xs-12 col-sm-7"> <span
+							class="middle">* 不超过100字</span>
+						</span>
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-2"> LOGO图片: </label>
+					<div class="col-sm-9">
+						<input type="file" name="file" accept="image/*" 
+						ng-file-select="uploadImage($files, 'logo1')" />
+						<br>
+						<a class="fancybox" data-fancybox-group="gallery" fancybox
+							ng-if="isShowImg(companyInfo.logo1)" 
+							ng-href="/showimg/upload/{{companyInfo.logo1}}">
+							<img
+							ng-src="/showimg/thumb/{{companyInfo.logo1}}"
+							style="width: 100px; height: 100px"></a>
+							{{companyInfo.logo1}}
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-1"> email: </label>
+
+					<div class="col-sm-9">
+						<input type="email" id="form-field-1" placeholder="请输入信息" name="email" required
+							ng-model="companyInfo.email" class="col-xs-10 col-sm-5" />
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-3">地址: </label>
+
+					<div class="col-sm-9">
+						<textarea class="form-control" id="form-field-9" name="location" required ng-maxlength="30"
+							placeholder="请输入信息" ng-model="companyInfo.location"></textarea>
+						<span class="help-inline col-xs-12 col-sm-7"> <span
+							class="middle">* 不超过30字</span>
+						</span>
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-1"> 电话: </label>
+
+					<div class="col-sm-9">
+						<input type="text" id="form-field-1" placeholder="请输入信息" name="phone" required ng-minlength="5"
+							ng-model="companyInfo.phone" class="col-xs-10 col-sm-5" />
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-1"> 手机: </label>
+
+					<div class="col-sm-9">
+						<input type="text" id="form-field-1" placeholder="请输入信息" name="cellPhone" required ng-pattern="/^[0-9]{11}$/"
+							ng-model="companyInfo.cellPhone" class="col-xs-10 col-sm-5" />
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-1"> 微博: </label>
+
+					<div class="col-sm-9">
+						<input type="text" id="form-field-1" name="weibo" placeholder="请输入信息" required
+							ng-model="companyInfo.weibo" class="col-xs-10 col-sm-5" />
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-2"> 微博二维码图片: </label>
+					<div class="col-sm-9">
+						<input type="file" name="file" accept="image/*" 
+						ng-file-select="uploadImage($files, 'barcodeImg1')" />
+						<br>
+						<a class="fancybox" data-fancybox-group="gallery" fancybox
+							ng-if="isShowImg(companyInfo.barcodeImg1)" 
+							ng-href="/showImage/{{companyInfo.barcodeImg1}}"> 
+							<img
+							ng-src="/showimg/thumb/{{companyInfo.barcodeImg1}}"
+							style="width: 100px; height: 100px"></a>
+							{{companyInfo.barcodeImg1}}
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-1"> QQ: </label>
+
+					<div class="col-sm-9">
+						<input type="text" id="form-field-1" name="qq" placeholder="请输入信息" required
+							ng-model="companyInfo.qq" class="col-xs-10 col-sm-5" />
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-2"> QQ二维码图片: </label>
+					<div class="col-sm-9">
+						<input type="file" name="file" accept="image/*" 
+						ng-file-select="uploadImage($files, 'barcodeImg2')" />
+						<br>
+						<a class="fancybox" data-fancybox-group="gallery" fancybox
+							ng-if="isShowImg(companyInfo.barcodeImg2)" 
+							ng-href="/showImage/{{companyInfo.barcodeImg2}}"> 
+							<img
+							ng-src="/showimg/thumb/{{companyInfo.barcodeImg2}}"
+							style="width: 100px; height: 100px"></a>
+							{{companyInfo.barcodeImg2}}
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-1"> 微信: </label>
+
+					<div class="col-sm-9">
+						<input type="text" id="form-field-1" name="weixin" placeholder="请输入信息" required
+							ng-model="companyInfo.weixin" class="col-xs-10 col-sm-5" />
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-2"> 微信二维码图片: </label>
+					<div class="col-sm-9">
+						<input type="file" name="file" accept="image/*" 
+						ng-file-select="uploadImage($files, 'barcodeImg3')" />
+						<br>
+						<a class="fancybox" data-fancybox-group="gallery" fancybox
+							ng-if="isShowImg(companyInfo.barcodeImg3)" 
+							ng-href="/showImage/{{companyInfo.barcodeImg3}}"> 
+							<img
+							ng-src="/showimg/thumb/{{companyInfo.barcodeImg3}}"
+							style="width: 100px; height: 100px"></a>
+							{{companyInfo.barcodeImg3}}
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-3">其他描述: </label>
+
+					<div class="col-sm-9">
+						<textarea class="form-control" id="form-field-9" ng-maxlength="200"
+							placeholder="请输入信息" ng-model="companyInfo.description2"></textarea>
+						<span class="help-inline col-xs-12 col-sm-7"> <span
+							class="middle">* 不超过200字</span>
+						</span>
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-1"> 备案信息1: </label>
+
+					<div class="col-sm-9">
+						<input type="text" id="form-field-1" placeholder="请输入信息"
+							ng-model="companyInfo.registerInfo1" class="col-xs-10 col-sm-5" />
+					</div>
+				</div>
+
+				<div class="space-4"></div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-1"> 备案信息2: </label>
+
+					<div class="col-sm-9">
+						<input type="text" id="form-field-1" placeholder="请输入信息"
+							ng-model="companyInfo.registerInfo2" class="col-xs-10 col-sm-5" />
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-1"> 1级分销提成百分比: </label>
+
+					<div class="col-sm-9">
+						<input type="number" id="form-field-1" name="marketing1" placeholder="请输入信息" style="width:120px;" required
+							ng-model="companyInfo.marketing1" class="col-xs-10 col-sm-5" />%
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-1"> 2级分销提成百分比: </label>
+
+					<div class="col-sm-9">
+						<input type="number" id="form-field-1" name="marketing2" placeholder="请输入信息" style="width:120px;" required
+							ng-model="companyInfo.marketing2" class="col-xs-10 col-sm-5" />%
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right"
+						for="form-field-1"> 3级分销提成百分比: </label>
+
+					<div class="col-sm-9">
+						<input type="number" id="form-field-1" name="marketing3" placeholder="请输入信息" style="width:120px;" required
+							ng-model="companyInfo.marketing3" class="col-xs-10 col-sm-5" />%
+					</div>
+				</div>
+				
+
+			<div class="form-group" ng-show="myform.$invalid">
+    			<label class="col-sm-2 control-label"></label>
+
+			    <div class="col-sm-10">
+			      <div class="alert alert-danger" style="margin-bottom: 0px">
+			        <ul>
+			          <li ng-show="myform.name.$error.required">企业名称不能为空！</li>
+			          <li ng-show="myform.name.$error.maxlength">企业名称长度不能大于30个字符！</li>
+			          <li ng-show="myform.description1.$error.required">企业描述不能为空！</li>
+			          <li ng-show="myform.description1.$error.maxlength">企业描述长度不能大于100个字符！</li>
+			          <li ng-show="myform.email.$error.required">email不能为空！</li>
+			          <li ng-show="myform.location.$error.required">地址不能为空！</li>
+			          <li ng-show="myform.location.$error.maxlength">地址长度不能大于30个字符！</li>
+			          <li ng-show="myform.phone.$error.required">电话不能为空！</li>
+			          <li ng-show="myform.phone.$error.minlength">电话格式有误！</li>
+			          <li ng-show="myform.cellPhone.$error.required">手机不能为空！</li>
+			          <li ng-show="myform.cellPhone.$error.pattern">手机格式有误！</li>
+			          <li ng-show="myform.weibo.$error.required">微博不能为空！</li>
+			          <li ng-show="myform.qq.$error.required">QQ不能为空！</li>
+			          <li ng-show="myform.weixin.$error.required">微信不能为空！</li>
+			        </ul>
+			      </div>
+			    </div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-10 no-padding-right" >
+				    <input type="submit" class="btn btn-primary" value="更新信息" ng-disabled="myform.$invalid" style="float:right;margin: 0 50%;"/>
+				</div>
+			</div>
+		</form>
+
+		</div>
+		<!-- /.col -->
+	</div>
+	<!-- /.row -->
+</div>
+<!-- /.page-content -->
+}

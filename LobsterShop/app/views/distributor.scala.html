@@ -1,0 +1,107 @@
+@frame("分销中心", "DistributorApp", "DistributorController") {
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html> -->
+	 <div class="user-img">
+	 
+	 
+	 	<div class="touxiang">
+		<img src='{{user.headImgUrl}}'
+			style="width: 80px; height: 80px; border-radius: 100px; border: 3px solid #F08300;"
+			alt="">
+	</div>
+	 <p class="user-p">会员号: <span class="user-p" ng-bind="user.resellerCode | uppercase"></span></p>
+	 <p class="user-p">总分销额: <span class="user-p" ng-bind="resellerAmount | currency: '￥'"></span></p>
+	  <p class="user-p">总佣金: <span ng-bind="user.currentResellerProfit | currency: '￥'"></span>
+	  <span ng-if="status === 0">(佣金:<span  ng-bind="txz | currency: '￥'"></span>正在提款中)</span></p>
+	 </div> 
+<div style=" width: 100%;min-height:480px;">
+	<!-- <div class="user-img"></div> -->
+	<a href="/w/DistributionOrder?storeId={{storeId}}" class="user-a"><div class="user-div1">
+		<img src='@routes.Assets.at("img/fx1.png")' alt="" class="xtb">
+		<span class="user-span">我的分销订单</span>
+		<img src='@routes.Assets.at("img/right.png")' alt=""
+			class="img-right" style="width: 25px; margin-top: 4px;">
+	</div>
+	</a>
+	<a href="/w/team?storeId={{storeId}}" class="user-a">
+	<div class="user-div1">
+		<img src='@routes.Assets.at("img/fx2.png")' alt="" class="xtb">
+		<span class="user-span">我的团队</span>
+		<img src='@routes.Assets.at("img/right.png")' alt=""
+			class="img-right" style="width: 25px; margin-top: 4px;">
+	</div>
+	</a>
+	<a href="/w/QRcode?nickName={{user.nickname}}&headImg={{user.headImgUrl}}&resellerBarcode={{user.resellerCodeImage}}&storeId={{storeId}}" class="user-a"><div class="user-div1">
+		<img src='@routes.Assets.at("img/fx3.png")' alt="" class="xtb">
+		<span class="user-span">我的分销二维码</span>
+		<img src='@routes.Assets.at("img/right.png")' alt=""
+			class="img-right" style="width: 25px; margin-top: 4px;">
+	</div>
+	</a>
+	<!-- 
+	<div class="user-div1">
+		<img src='@routes.Assets.at("img/fx3.png")' alt="" class="xtb">
+		<span class="user-span">我的下线二维码</span>
+		<img src='@routes.Assets.at("img/right.png")' alt=""
+			class="img-right">
+	</div> -->
+	
+	<div class="user-div1" ng-click="checkFondout(user.currentResellerProfit)" ng-if="put && status === 1">
+		<img src='@routes.Assets.at("img/fx4.png")' alt="" class="xtb">
+		<span class="user-span" >我要提款</span>
+		<img src='@routes.Assets.at("img/right.png")' alt=""
+			class="img-right" style="width: 25px; margin-top: 4px;">
+	</div>
+	
+	<div class="user-div1" ng-if="allowFondout">
+	<form id="form" role="form" name="myform"  novalidate>
+		<span class="fondout-span">输入手机号:</span>
+		<input type="text" ng-model="drawing.phone" required style="width:50%;height:24px;margin-left: 2%;"/>
+		<span ng-if="myform.$valid">
+		<input type="button" value="提交" ng-click="save(@session.get("userid"))" style="width:14%;height:24px;margin-left: 2%;"/>
+		</span>
+		<span ng-if="myform.$invalid">
+		<input type="button" value="提交"  ng-disabled="myform.$invalid" style="background:wine;" ng-click="save(@session.get("userid"))" style="width:14%;height:24px;margin-left: 2%;"/>
+		</span>
+	</form>
+	</div>
+
+	<div class="bottom">
+		<p>外卖时间：上午 10:00 ~ 次日凌晨 3:00</p>
+		<p>客服热线：<span ng-bind="StoreList.phone"></span></p>
+		<div class="numberB">
+			<ul class="clear">
+				<li style=""><a href="/w/about#c1" style="color:black;">购物流程</a></li>
+				<li ><a href="/w/about#c2" style="color:black;">支付配送</a></li>
+				<li ><a href="/w/about#c2" style="color:black;">售后服务</a></li>
+				<li ><a href="/w/about#c4" style="color:black;">关于我们</a></li>
+				<li  style="border-right: 0px solid #F08300;"><a href="/w/about#c5" style="color:black;">联系我们</a></li>
+			</ul>
+		</div>
+		<div class="homefooter_7080" style="margin-top: 4%;text-align: center;">
+			<img src='@routes.Assets.at("images/7080.png")' style="width: 20%;">
+			<P class="homefooter_text_p2" style="color: #999;margin-top: 3px;">由7080网络提供技术支持</P>
+		</div>
+	</div>
+
+
+<div class="foot">
+		<ul>
+			<li class="foot1" style="padding: 0 ;"><a
+				href="/w/wine?storeId={{storeId}}"><b class="f1"></b><br />首页</a></li>
+			<li class="foot2"><a href="/w/set?storeId={{storeId}}"><b class="f2"></b><br />美食分类</a></li>
+			<li class="foot3"><a href="/w/cart?storeId={{storeId}}"><b class="f3"></b><br />购物车(<span  ng-bind="cart | cartCalculate"></span>)<!-- (@session.get("CART")) --></a></li>
+
+			<li class="foot4"><a href="/w/userCenter?storeId={{storeId}}"><b class="f4"></b><br />个人中心</a></li>
+		</ul>
+	</div> 
+}
+<script src='@routes.Assets.at("js/controllers/distributor_controller.js")'></script>

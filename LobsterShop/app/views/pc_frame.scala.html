@@ -1,0 +1,165 @@
+@(title: String, app: String, controller: String)(content: Html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="keywords" content="龙鑫浩然定制酒,龙鑫浩然酒业,定制酒,订制酒,私人订制,白酒定制"/>
+<meta name="description" content="龙鑫浩然定制酒,龙鑫浩然,订制酒,私人订制,白酒定制"/>
+<title>龙鑫定制酒官网-@title</title>
+
+<link rel="stylesheet" href='@routes.Assets.at("pc_css/style.css")' />
+<script src='@routes.Assets.at("js/TouchSlide.1.1.js")'></script>
+<script src='@routes.Assets.at("js/jquery.min.js")'></script>
+<script src='@routes.Assets.at("pc_js/jfade.js")'></script>
+</head>
+<script>
+	   function show(){
+		   document.getElementById("erweima").style.display=""
+			   setTimeout("self.close12()",2000);
+			setTimeout("self.close()",8000);
+	   }
+	   function close(){
+		   document.getElementById("erweima").style.display="none"
+	   }
+	   function close12(){
+		     document.getElementById('t2').innerHTML="自动关闭中，请稍后..."
+	   }
+</script>
+<body ng-app="@app" ng-controller="@controller">
+	<div onclick="close()">
+	    <div class="erweima" style="display:none; position: fixed; width: 100%;height: 100vh; background-color: rgba(0,0,0,0.5);z-index: 9; top: 0;" 
+	    	id="erweima">
+	    	<div class="erweima_main" style=" width: 400px;height: 500px;background-color: #fff;margin: 15% auto;border-radius: 7px;text-align: center;">
+	    	    <h2 style=" padding:30px 0px;  color: #B58F50;">请扫描二维码登录</h2>
+	    	    <p style=" border: 1px dashed seagreen;padding: 0;margin: 0 0 37px;"></p>
+	    	    <img src='@routes.Assets.at("pc_images/erweima.jpg")' style="width: 300px; height: 300px"/>
+	    	    <p style="text-align: right;     padding-right: 10px;" id="t2"></p>
+	    	</div>
+	    </div>
+	</div>
+	 <div class="home_head">
+          <div class="home_content">
+            <div class="logo">
+                 <a  href="/"><img src='@routes.Assets.at("pc_images/logo.png")' alt="logo" /></a>
+            </div>
+            <div class="nav">
+                    <ul class="navbar">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/p/themes">主题定制</a>
+                           
+                        </li>                    
+                       <!--  <li><a href="#">产品分类</a>
+                            
+                        </li> -->
+                        <li><a href="/p/charitable">爱心公益 </a>
+                          
+                        </li>                         
+                        <li><a href="/p/aboutUs ">关于我们</a></li>
+                    </ul>
+                    
+             </div>
+                <div class="home_login" style="margin-top: 8px;">
+                   <img style="padding-left: 20px;" src='@routes.Assets.at("pc_images/1.jpg")'/>
+				</div>
+             </div>
+             <div style="margin-left: 25px;color: #fff;background-color: #B58F50;padding: 2px 14px;border-radius: 5px;height: 24px;float: left;margin-top: 11px;"
+             onclick="show()">
+						登录
+			 </div>
+        </div>
+		<div>@content</div>
+	
+<div class="home_bottom">
+    <div class="home_end">
+    <img src='@routes.Assets.at("pc_images/logo_botm.jpg")'/>
+    <div class="row">
+       <ul>
+        <li class="special"><a >关于龙鑫</a></li>
+        <li><a href="/p/aboutUs#ab1">龙鑫简介</a></li>
+        <li><a href="/p/aboutUs#ab2">龙鑫咨询</a></li>
+        <li><a href="/p/aboutUs#ab3">揭密茅台古镇</a></li>
+        <li><a href="/p/aboutUs#ab4">定制问题解答</a></li>
+      </ul>
+    </div>
+	     <div class="row">
+	       <ul>
+	        <li class="special"><a >购物指南</a></li>
+	        <li><a href="/p/shopping#go1">定制须知</a></li>
+	        <li><a href="/p/shopping#go2">定制流程</a></li>
+	        <li><a href="/p/shopping#go3">配送方式及时间</a></li>
+	        <li><a href="/p/shopping#go4">售后政策</a></li>
+	      </ul>
+	    </div>
+	     <div class="row">
+	       <ul>
+	        <li class="special"><a>帮助中心</a></li>
+	        <li><a href="/p/help#he1">在线支付</a></li>
+	        <li><a href="/p/help#he2">退货说明</a></li>
+	        <li><a href="/p/help#he3">发票说明</a></li>
+	        <li><a href="/p/help#he4">常见问题</a></li>
+	      </ul>
+	    </div>
+	    <div class="row">
+	       <ul>
+	        <li class="special"><a>联系我们</a></li>
+	        <li><a href="/">客服：400-8080-298</a></li>
+	        <li><a href="/">邮箱：longxin longxin9.com</a></li>
+	        
+	      </ul>
+	    </div>
+     <div class="row">
+       <ul>
+        <li class="special"><a>关注我们</a></li>
+        <li><a href="/"><img style="vertical-align:top;" src='@routes.Assets.at("pc_images/xinlang.jpg")'/>新浪微博</a></li>
+         <li><a href="/"><img style="vertical-align:top;" src='@routes.Assets.at("pc_images/thent.jpg")'/>腾讯微博</a></li> 
+        
+      </ul>
+    </div>
+    <img src='@routes.Assets.at("pc_images/erweima.jpg")' style=" width: 106px;height: 106px;" />
+    <span>©2014 Sohu.com Inc. All Rights Reserved.龙鑫公司 版权所有 粤ICP备05033978号 </span></div>
+   
+</div>
+
+	<div class="up_top clear">
+		<div class="up_top_lf">
+             <a href="/">
+            	 <div><img src='@routes.Assets.at("pc_images/us.png")'></div>
+			 </a>
+			 <a href="#">
+             	<div><img src='@routes.Assets.at("pc_images/top.png")'></div>
+             </a>
+		</div>
+		<div class="up_top1_rt">
+			<img src='@routes.Assets.at("pc_images/erweima.jpg")' />
+		</div>
+	</div>
+
+	<script src='@routes.Assets.at("js/angular.min.js")'></script>
+	<script src='@routes.Assets.at("js/jquery-1.11.1.min.js")'></script>
+	<script src='@routes.Assets.at("js/TouchSlide.1.1.js")'></script>
+	<script src='@routes.Assets.at("js/jquery.min.js")'></script>
+	<script src='@routes.Assets.at("pc_js/jfade.js")'></script>
+	<script src='@routes.Assets.at("js/jquery.touchSwipe.min.js")'></script>
+	<script src="@routes.Assets.at("js/angular-file-upload-shim.min.js")"></script>
+	<script src="@routes.Assets.at("js/angular-file-upload.min.js")"></script>
+	<script src="@routes.Assets.at("js/createDialog.js")"></script>
+	<script src='@routes.Assets.at("js/controllers/Wproduct_controller.js")'></script>
+	<script src='@routes.Assets.at("js/controllers/marry_controller.js")'></script>
+	<script src='@routes.Assets.at("js/controllers/collect_controller.js")'></script>
+	<script src='@routes.Assets.at("js/controllers/distributor_controller.js")'></script>
+	<script src='@routes.Assets.at("js/controllers/wine_controller.js")'></script>
+	<script src='@routes.Assets.at("js/controllers/order_controller.js")'></script>
+	<script src='@routes.Assets.at("js/controllers/pay_controller.js")'></script>
+	<script src='@routes.Assets.at("js/controllers/myLocation_controller.js")'></script>
+	<script src='@routes.Assets.at("js/controllers/DistributionOrder_controller.js")'></script>
+	<script src='@routes.Assets.at("js/controllers/invoiceType_controller.js")'></script>
+	<script src='@routes.Assets.at("js/controllers/lazy_img_load.js")'></script>
+	
+	<script src='@routes.Assets.at("js/controllers/userCenter_controller.js")'></script>
+	<script src='@routes.Assets.at("js/controllers/location_controller.js")'></script>
+		<script src='@routes.Assets.at("js/controllers/myOrder_controller.js")'></script>
+		<script src='@routes.Assets.at("js/controllers/qrcode_controller.js")'></script>
+		<script src='@routes.Assets.at("js/ui-bootstrap-tpls-0.12.0.min.js")'></script>	
+</body>
+</html>

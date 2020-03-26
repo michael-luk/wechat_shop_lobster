@@ -1,0 +1,33 @@
+
+@pc_frame("主题定制", "WineApp", "WineController") { 
+<meta charset="UTF-8">  
+
+<body>
+<div>
+ <div class="order_theme clear"  style="clear:both"  ng-init="listSize=9">
+   <div ng-repeat="Timage in Timages | limitTo:listSize"   class="jfade_image clear">
+		<a id="images"  href="/p/themePct/{{CatalogList[$index].id}}">
+			<img ng-src='/showimg/pc_images2/{{Timages[$index]}}'{{CatalogList[$index]}}/>	
+		</a>			
+   </div>
+  <!--  <div ng-click="listSize=listSize+8" class="aclick" ng-hide="listSize >= Timages.length">
+          <a href="" style="color:#b58f50;" onclick="javascript:return false;">显示更多></a>
+     </div>
+	-->
+ </div>
+
+
+
+
+<div class="theme_line" style="margin-top:30px;"></div>
+
+
+<div class="theme_process">
+   <img src='@routes.Assets.at("pc_images/process.jpg")'/>  
+</div>
+
+
+</div>
+
+
+}

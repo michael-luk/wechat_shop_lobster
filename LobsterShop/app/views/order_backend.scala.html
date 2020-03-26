@@ -1,0 +1,77 @@
+@main("订单管理", "OrderBackendApp", "OrderBackendController") {
+    <div class="page-content">
+        <div class="page-header">
+            <h1>订单管理</h1>
+        </div>
+            <!-- /.page-header -->
+
+        <div class="row">
+            <div class="col-xs-12">
+                <p>
+                    <select ng-model="selectStoreId" id="stores" name="stores"
+                    ng-options="store.id as store.area for store in stores">
+                    </select>
+
+                    <select ng-model="selectStatusId" id="status" name="status"
+                    ng-options="sta.id as sta.name for sta in status">
+                        <option value="">全部</option>
+                    </select>
+
+                    <input type="text" ng-model="findOrder" placeholder="按订单号和购买用户搜"/>
+                    <input type="button" value="搜索" ng-click="findContent()">
+
+                    <a href="/report/orders?all=true&storeId={{selectStoreId}}">打印全部订单报表</a>|
+                    <a href="/report/orders?storeId={{selectStoreId}}">打印已支付订单报表</a>
+                </p>
+                <div class="gridStyle" ng-grid="gridOptions"></div>
+                <style>
+                .col4,.col7{
+                overflow-x: hidden;
+                overflow-y: auto;
+
+                }
+                /*滚动条美化*/
+
+                .col4::-webkit-scrollbar {
+                width: 8px;
+                }
+                .col4::-webkit-scrollbar-track {
+                background-color:#f8f8f8;
+
+                }
+                .col4::-webkit-scrollbar-thumb {
+                background-color:#BCBCBC;
+
+                }
+                .col7::-webkit-scrollbar {
+                width: 8px;
+                }
+                .col7::-webkit-scrollbar-track {
+                background-color:#f8f8f8;
+
+                }
+                .col7::-webkit-scrollbar-thumb {
+                background-color:#BCBCBC;
+
+                }
+                /*滚动条美化*/
+                </style>
+
+                <br>
+                <div ng-show="pageInfo">
+                    <p>每页显示: {{pageInfo.size}}, 目前显示: {{pageInfo.desc}}, 当前页: {{pageInfo.current}}, 共{{pageInfo.total}}页</p>
+                    <p>
+                        <a href="" ng-click="goHomePage()" ng-show="pageInfo.hasPrev" >首页</a>
+                        <a href="" ng-click="goPrevPage()" ng-show="pageInfo.hasPrev">上一页</a>
+                        <a href="" ng-click="goNextPage()" ng-show="pageInfo.hasNext">下一页</a>
+                        <a href="" ng-click="goLastPage()" ng-show="pageInfo.hasNext" >末页</a>
+                        <span ng-show="pageInfo.total > 1">跳到<input type="text" ng-Model="jumpPage" style="width:40px;height:20px"/>页
+                            <input type="button" value="go" ng-click="goJumpPage()" style="width:30px;height:23px;color:#0099FF"> </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+            <!-- /.row -->
+    </div>
+        <!-- /.page-content -->
+}

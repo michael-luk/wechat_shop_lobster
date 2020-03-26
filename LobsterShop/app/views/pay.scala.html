@@ -1,0 +1,70 @@
+@frame("确认订单", "PayApp", "PayController") {
+<meta charset="UTF-8">
+<div class="pay">
+	<div class="pay-div1" ng-if="myLocations != null">
+		<a href="/w/myLocation?pid={{pid}}&num={{newOrder.quantity}}&price={{newOrder.price}}&amount={{newOrder.amount}}&themeName={{newOrder.themeName}}&themeId={{newOrder.refThemeId}}&image={{newOrder.image}}&userId={{userId}}&productAmount={{newOrder.productAmount}}&storeId={{storeId}}">
+	<div class="pay1-left" style="width:84%; float:left;margin: 4% 0 2% 0;">
+	<p class="pay-p1">
+			收货人：<span ng-bind="defaultLocation.name"></span> <span ng-bind="defaultLocation.phone" style="float:right;"></span>
+		</p>
+		<p class="pay-p1">
+			送货地址:&nbsp;<span style="color:#bda770;" ng-if="defaultLocation.isDefault === true ">[默认]&nbsp;</span><span ng-bind="defaultLocation.zone"></span><span ng-bind="defaultLocation.area"></span><span ng-bind="defaultLocation.location"></span>
+		</p>
+	</div>
+	<div class="pay1-right" style="width:15%;float:left;margin:5% 0 5% 0;">
+
+	<img src='@routes.Assets.at("img/right.png")' alt="" class="xtb" style="float:right; width:55%;">
+	</div>
+		</a>
+	</div>
+	<!-- 没有地址  -->
+	<a href="/w/location?pid={{pid}}&num={{newOrder.quantity}}&price={{newOrder.price}}&&amount={{newOrder.amount}}&themeName={{newOrder.themeName}}&themeId={{newOrder.refThemeId}}&image={{newOrder.image}}&wishImage={{newOrder.wishImage}}&userId={{user.id}}&productAmount={{newOrder.productAmount}}&storeId={{storeId}}">
+	<div class="pay-div1" style="min-height: 30px;" ng-if="myLocations === null ">
+	<div class="pay1-left" style="width:84%; float:left;">
+	<p class="pay-p1" style="margin-top:2%;">
+			请填写地址
+		</p>		
+	</div>
+	<div class="pay1-right" style="width:15%;float:left;margin:1% 0 1% 0;">
+	
+	<img src='@routes.Assets.at("img/right.png")' alt="" class="xtb" style="float:right; width:55%;">
+	</div>
+		
+	</div>
+	</a>
+
+	<div class="vipmub">
+		<p>VIP尊享码</p>
+		<input  class="vipmub-put" type="text" name="" ng-model="Code">
+		<span ng-click="UseCode(Code)">使用尊享码</span>
+	</div>
+
+	<p class="newpay-p1"> <img src='@routes.Assets.at("img/20.png")' alt="" style="width:20px;margin-right: 6px;">在线支付          <!-- <img src='@routes.Assets.at("img/19.png")' alt="" style="width:20px;margin: 0 2px 0 51px;"> 货到付款</p> -->
+<!-- 	<p class="newpay-p2"> <img src='@routes.Assets.at("img/{{UseImage}}")' alt="" style="width:20px;margin-right: 6px;" ng-click="UseCoupons()">使用我的积分<span style="font-size:10px;">(500积分抵用5.00元)</span>:&nbsp;<input type="text"  style="width: 46px;" ng-model="newOrder.jifen"><span style="width: 46px; border:1px solid #eeeeee;height:25px;padding:0 8px;"ng-bind="newOrder.jifen">123</span> <span class="newpay-span">-<span ng-bind="newOrder.jifen / 100"></span></span></p> -->
+	<!-- <p class="newpay-p2"> <img src='@routes.Assets.at("img/19.png")' alt="" style="width:20px;margin-right: 6px;">使用优惠卷 <span class="newpay-span"> -5.00</span></p> -->
+	<!-- <p class="newpay-p2"> 满减优惠 <span class="newpay-span"> -5.00</span></p> -->
+	
+	<p class="newpay-p3"> 买家留言:<input type="text;" ng-model="newOrder.liuYan" style="width:70%;"></p>
+	
+	
+	<p class="newpay-p2" ng-repeat="item in cart.items" ng-if="item.select"><span ng-bind="item.product.name" style="font-size: 13px;"></span>      <span class="newpay-span1">x <span ng-bind="item.num"></span ></span><span class="newpay-span1" ng-bind="item.product.price  | currency: '￥'"></span></p>
+	<!-- <p class="newpay-p2"> 漫天虾小龙虾大份    <span>x1</span>  <span class="newpay-span1">9.00</span></p> -->
+	
+	<p class="newpay-p3"> 配送费:&nbsp;<span style="color:#f08300;"></span> <span class="newpay-span1"  ng-bind="newOrder.shipFee  | currency: '￥'"></span></p>
+	<p class="newpay-p3" ng-repeat="promotion in promotions" ng-if="promotion.available"> <span ng-bind="promotion.title" style="font-size: 13px;"></span>&nbsp;<span style="color:#f08300;"></span>  <span class="newpay-span1"  ng-bind="promotion.discount | currency: '￥'"></span><span class="newpay-span1" style="color:black;">-</span></p>
+	@*<p class="newpay-p3" >满100元送价值40元濑尿虾1份</p>*@
+	<!-- <p class="newpay-p4"> <a style="color:#f08300;" >不清楚消费规则?</a></p> -->
+	
+	
+	<div class="foot" style="height:50px;padding:0;">
+		<ul style=" height: 50px;">
+			<li class="foot2" style="padding: 0 ;width:65%;background:#fff;height: 50px;"><a href="/w/allProduct?storeId={{storeId}}" style="color:black;font-size:13px;"><br />合计:&nbsp;<span style="color:#f08300;" ng-bind="amount - enjoypromotionAmount| currency: '￥'"></span><!-- (已优惠15.0元) --></a></li>
+			<li class="foot3" style="padding: 0 ;width:35%;background:#f08300;height: 50px;" ng-click="addOrder()" ng-if="defaultLocation.phone != null"><a href="" style="color:#fff;"><br />立即下单</a></li>		
+			<li class="foot3" style="padding: 0 ;width:35%;background:#f08300;height: 50px;" ng-click="jinggao(defaultLocation)" ng-if="defaultLocation === null"><a href="" style="color:#fff;"><br />立即下单</a></li>		
+		</ul>
+	</div>
+	
+
+</div>
+}
+<script src='@routes.Assets.at("js/controllers/pay_controller.js")'></script>

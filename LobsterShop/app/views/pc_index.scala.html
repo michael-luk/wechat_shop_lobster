@@ -1,0 +1,215 @@
+@pc_frame("首页", "WineApp", "WineController") { 
+<meta charset="UTF-8">
+
+<div onclick="close2()">
+	    <div class="erweima" style="display:none; position: fixed; width: 100%;height: 100vh; background-color: rgba(0,0,0,0.5);z-index: 9; top: 0; " 
+	    	id="erweima2">
+	    	<div class="erweima_main" style="    position: relative; width: 400px;height: 500px;background-color: #fff;margin: 15% auto;text-align: center; border-radius: 7px;">
+	    	    <h2 style=" padding:30px 0px;  color: #B58F50;">扫描二维码立即定制</h2>
+	    	    <p style=" border: 1px dashed seagreen;padding: 0;margin: 0 0 37px;"></p>
+	    	    <img src='@routes.Assets.at("pc_images/erweima.jpg")' style="width: 300px; height: 300px"/>
+				<p style="text-align: right;" id="t20"></p>
+	    	</div>	
+	    </div>
+</div>
+    <script>
+		function show2(){
+			document.getElementById("erweima2").style.display=""
+			setTimeout("self.close120()",2000);
+			setTimeout("self.close2()",5000);
+		}
+		function close2(){
+			document.getElementById("erweima2").style.display="none"
+		}
+		function close120(){
+			document.getElementById('t20').innerHTML="自动关闭中，请稍后..."
+		}
+    </script>
+    
+    
+    <div style="position: relative; top: -29px;">
+    	<div id="slideBox" class="slideBox">
+				<div class="bd">
+					<ul>
+						<li>
+							<a class="pic" href="#"><img src='@routes.Assets.at("pc_images/ban_02.jpg")' /></a>
+						</li>
+						<li>
+							<a class="pic" href="#"><img src='@routes.Assets.at("pc_images/ad2.jpg")' /></a>
+						</li>
+						<li>
+							<a class="pic" href="#"><img src='@routes.Assets.at("pc_images/ad3.jpg")' /></a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="hd">
+					<ul></ul>
+				</div>
+		</div>
+	</div>
+			<script type="text/javascript">
+				TouchSlide({ 
+					slideCell:"#slideBox",
+					titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+					mainCell:".bd ul", 
+					effect:"leftLoop", 
+					autoPage:true,//自动分页
+					autoPlay:true //自动播放
+				});
+			</script>
+    <!--/#home-slider-->
+
+
+   
+        <div class="home_honner">
+             <div class="home_three"> 
+                    <div class="single-service">
+                        <div class="wow scaleIn">
+                            <img src='@routes.Assets.at("pc_images/three_0.jpg")' alt="">
+                        </div>
+                        <h2>不平庸的DNA</h2>
+                        <span>地处国酒之乡、神秘的赤水河畔的茅台镇有7.5万平方公里酱酒核心产区，龍鑫厂址占地面积300亩，离茅台集团一厂500米，拥有3项国家白酒酿造专利技术，是茅台镇三大酱酒品牌之一。</span>
+                    </div>
+                    <div class="single-service" >
+                        <div class="wow scaleIn">
+                            <img src='@routes.Assets.at("pc_images/three_1.png")' alt="">
+                        </div>
+                        <h2>不平庸的荣誉</h2>
+                        <span>龍鑫酱香酒产自“贵州省著名商标”国宝酒厂，迄今近200年历史，是享有“植物埋藏法”知识产权的股份制大型白酒企业，荣居贵州省仁怀市三大明星企业之一。</span>
+                    </div>
+                    <div class="single-service" >
+                        <div class="wow scaleIn">
+                            <img src='@routes.Assets.at("pc_images/three_2.jpg")'/>
+                        <h2>不平庸的品质</h2>
+                        <span>龍鑫酱香酒作为高品质的酱香型白酒，其酒质晶亮透明，微有黄色，酱香突出，令人陶醉，敞杯不饮，香气扑鼻，满口生香，饮后空杯，留香更大，持久不散。口味幽雅细腻，酒体丰满醇厚，回味悠长。</span>
+                    </div>
+                
+            </div>
+            <button class="home_btn" onclick="show2()">一键定制我的专属</button>
+        </div>
+</div>
+    <!--/#services-->
+
+<div class="home_order">
+       <div class="title-nav"> 
+           <div class="title1">主题<br/>定制</div>
+           <span>你对人生有多少想象，我们就给你多少定制方案</span>
+           <a href="/p/themes">更多主题></a>
+        </div>
+</div>
+
+
+
+
+<div class="home_pic" ng-init="ListSize=5">
+  <div ng-repeat="Catalog in CatalogList  | limitTo:ListSize" >
+  	<a href="/p/themePct/{{CatalogList[$index].id}}">
+  		<!-- {{Catalog.name}} -->
+  		<img
+			src='@routes.Assets.at("pc_images/{{Timages[$index]}}")' alt=""
+			style="width:1200px; height: 350px;">
+  	</a>
+  </div>
+<!--   <div ng-click="ListSize=ListSize+4" class="aclick" ng-hide="ListSize >= CatalogList.length">
+          <a style="color:#b58f50;" onclick="javascript:return false;">显示更多主题>{{CatalogList.length}}</a>
+     </div> -->
+</div>
+
+
+<div class="home_order">
+       <div class="title-nav"> 
+           <div class="title1">经典<br/>推荐</div>
+           <span>龙鑫浩然经典系列白酒</span>
+        </div>
+</div>
+
+
+<div class="home_allproduct clear"  ng-init="listSize=4">
+
+
+     <div class="home_product" ng-repeat="Product in ProductList | limitTo:listSize">
+     	<a href="/">
+     		<img src='@routes.Assets.at("upload/{{images[$index]}}")' width=100% />
+     	</a>
+     	<p style="height: 80px;">{{Product.tags}}{{Product.name}} {{Product.alcoholDegree}}度 <!-- {{Product.ml}} ml -->
+     		<br />
+     		<i style="color:#333;font-style:normal;">{{Product.flavor}}{{Product.productionCity}}</i>
+     	</p>
+     	<!-- <span >￥{{Product.price}}</span> -->
+      	<a style="background-color:#121a31;"  onclick="show2()">立即定制</a>
+     </div>
+     <div ng-click="listSize=listSize+4" class="aclick" ng-hide="listSize >= ProductList.length">
+          <a href="" style="color:#b58f50;" onclick="javascript:return false;">显示更多></a>
+     </div>
+</div>
+    
+     
+     
+
+
+<!-- <div class="home_order">
+       <div class="title-nav"> 
+           <div class="title1">龙鑫<br/>资讯</div>
+           <span>贵州茅台镇出品 尊享白酒的私人定制</span>
+       </div>
+</div>
+
+
+咨询
+<div ng-repeat="Product in ProductList | limitTo:2">
+
+
+	<div class="home_news clear">
+	    <div class="toptitl clear">
+	         <div class="tp1">定制酒文化</div>
+	         <div class="tp2"></div>
+	         <div class="tp3"><a href="/" style="color:#b58f50;">更多咨询></a></div>
+	    </div>
+	    
+	    <div class="toppic clear ">
+	    		<img src='@routes.Assets.at("pc_images/artical.jpg")'/>   
+	        <div class="artical">
+	           <ul>
+	           		<li class="clear" ng-repeat="Product in ProductList | limitTo:4"> 
+	           			<a href="/"><span>{{Product.name}}</span> <b></b></a>
+	           		</li> 
+	           </ul>
+	        </div>
+	        
+	    </div>
+	</div> -->
+	
+	
+	
+<!-- 	
+	<div class="home_news clear">
+	 <div class="toptitl clear">
+	         <div class="tp3"><a href="/" style="color:#b58f50;">更多攻略></a></div>
+	         <div class="tp2"></div>
+	         <div class="tp1">定制酒攻略</div>
+	    </div>
+	   
+	    <div class="toppic clear">
+	     <img src='@routes.Assets.at("pc_images/artical_2.jpg")'/>  
+	        <div class="artical">
+	           <ul>
+	           <li ng-repeat="Product in ProductList | limitTo:3"><a href="/">哪里可以做个性定制酒？龙鑫酒业</a></li> 
+	           </ul>
+	        </div>
+	    </div>
+	</div> -->
+	
+	
+	
+	
+	
+</div>
+
+	<div class="theme_line" style="margin-top:30px;"></div>
+   <div class="theme_process">
+   <img src='@routes.Assets.at("pc_images/process.jpg")'/>  
+</div>
+
+}
+
