@@ -5,9 +5,9 @@
 包括微商城, 后台管理. 包含优惠折扣, 砍价等功能. 截图如下:
 
 
-![Image text](https://raw.githubusercontent.com/michael-luk/images/master/lobster_shop.png)
+![Image text](http://www.woyik.com/img/lobster_shop.png)
 
-![Image text](https://raw.githubusercontent.com/michael-luk/images/master/lobster_admin.png)
+![Image text](http://www.woyik.com/img/lobster_admin.png)
 
 
 开发框架: 后台Play框架2.3.8版本 https://www.playframework.com/documentation/2.3.x/Home, 前台AngularJS+JQuery
